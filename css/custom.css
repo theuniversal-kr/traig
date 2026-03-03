@@ -129,6 +129,33 @@ html {
   background: linear-gradient(180deg, #0A0A0F 0%, #14141B 50%, #0A0A0F 100%);
 }
 
+/* Subpage hero gradient */
+.subpage-hero {
+  background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+}
+
+/* Card link arrow animation */
+.card-arrow {
+  transition: transform 0.3s ease;
+}
+
+.card-hover:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+/* Next/prev page navigation */
+.page-nav-link {
+  transition: transform 0.2s ease;
+}
+
+.page-nav-link:hover {
+  transform: translateX(4px);
+}
+
+.page-nav-link.prev:hover {
+  transform: translateX(-4px);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bg-grid-pattern {

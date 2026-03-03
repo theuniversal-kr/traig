@@ -8,7 +8,7 @@
   <meta property="og:title" content="traig — Automated Crypto Trading">
   <meta property="og:description" content="Systematic crypto trading for individuals and institutions. Join the waitlist for early access.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://traig.io">
+  <meta property="og:url" content="https://traig.kr">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="traig — Automated Crypto Trading">
   <meta name="twitter:description" content="Systematic crypto trading for individuals and institutions.">
@@ -43,8 +43,28 @@
   <!-- Header -->
   <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold tracking-tight">traig</a>
-      <nav class="flex items-center gap-4 sm:gap-6">
+      <a href="index.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            Product
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Strategy</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Dashboard</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Emergency Actions</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">History</a>
+            </div>
+          </div>
+        </div>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Philosophy</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">About</a>
+      </nav>
+      <div class="flex items-center gap-4">
         <div class="lang-switcher flex items-center gap-2 text-sm text-txt-secondary">
           <a href="index.html" class="active">EN</a>
           <span class="text-border">|</span>
@@ -55,7 +75,26 @@
         <a href="#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
           Join Waitlist
         </a>
-      </nav>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Product</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Strategy</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Dashboard</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Emergency Actions</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">History</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Philosophy</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">About</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Join Waitlist</a>
+      </div>
     </div>
   </header>
 
@@ -97,54 +136,64 @@
   <section id="features" class="relative py-20 sm:py-28 section-glow">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-16 fade-in-up">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why traig</h2>
-        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">A new paradigm for systematic crypto trading</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Explore traig</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Everything you need for systematic crypto trading</p>
       </div>
-      <div class="grid sm:grid-cols-2 gap-6">
-        <!-- Feature 1: Continuous Strategy -->
-        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Strategy -->
+        <a href="strategy.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">Continuous Strategy</h3>
-          <p class="text-txt-secondary text-sm mb-4">Piecewise-linear recipes map price to allocation smoothly — no rigid grid steps. Define aggressive zones and conservative zones freely.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">Screenshot coming soon</p>
+          <p class="text-txt-secondary text-sm mb-4">Piecewise-linear recipes that map price to allocation smoothly — no rigid grid steps.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
           </div>
-        </div>
-        <!-- Feature 2: AI-Powered Management -->
-        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
+          <h3 class="text-lg font-semibold mb-2">Dashboard</h3>
+          <p class="text-txt-secondary text-sm mb-4">Monitor and manage your strategies with precision. Small details, big convenience.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <!-- AI (highlighted) -->
+        <a href="ai.html" class="bg-surface border border-accent/30 rounded-xl p-6 card-hover fade-in-up block">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">AI-Powered Management</h3>
-          <p class="text-txt-secondary text-sm mb-4">Create, modify, and transition strategies through conversation. The AI chatbot handles recipe management — just tell it what you want.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">Screenshot coming soon</p>
-          </div>
-        </div>
-        <!-- Feature 3: Backtesting -->
-        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
+          <h3 class="text-lg font-semibold mb-2">AI-Powered</h3>
+          <p class="text-txt-secondary text-sm mb-4">Create, modify, and manage strategies through natural conversation with AI.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <!-- Backtesting -->
+        <a href="backtesting.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">Backtesting</h3>
-          <p class="text-txt-secondary text-sm mb-4">Validate your strategies against historical minute-candle data before deploying. Conservative fill assumptions for realistic results.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">Screenshot coming soon</p>
-          </div>
-        </div>
-        <!-- Feature 4: Non-Custodial -->
-        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
+          <p class="text-txt-secondary text-sm mb-4">Validate strategies against historical minute-candle data before deploying live.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <!-- Emergency -->
+        <a href="emergency.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">100% Non-Custodial</h3>
-          <p class="text-txt-secondary text-sm mb-4">Your keys, your funds. Connect via exchange API keys. Every AI prompt is open and auditable — complete transparency.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">Screenshot coming soon</p>
+          <h3 class="text-lg font-semibold mb-2">Emergency Actions</h3>
+          <p class="text-txt-secondary text-sm mb-4">When markets move fast, act faster. Liquidation and instant position controls.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <!-- History -->
+        <a href="history.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-        </div>
+          <h3 class="text-lg font-semibold mb-2">Trade History</h3>
+          <p class="text-txt-secondary text-sm mb-4">Complete records with smart adjustments like deposit/withdrawal correction.</p>
+          <span class="text-accent text-sm flex items-center gap-1">Learn more <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -157,42 +206,33 @@
         <p class="text-txt-secondary text-lg">From discrete steps to continuous curves</p>
       </div>
 
-      <!-- SVG Comparison Illustration -->
+      <!-- SVG Comparison -->
       <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in-up">
-        <!-- Grid Bot: Staircase -->
         <div class="bg-surface border border-border rounded-xl p-6 text-center">
           <h3 class="text-lg font-semibold mb-4 text-txt-secondary">Grid Bot</h3>
           <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
-            <!-- Axes -->
             <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
             <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
             <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
             <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
-            <!-- Staircase function -->
             <polyline points="50,130 90,130 90,110 130,110 130,90 170,90 170,70 210,70 210,50 250,50 250,40" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Grid lines -->
             <line x1="90" y1="150" x2="90" y2="130" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
             <line x1="130" y1="150" x2="130" y2="110" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
             <line x1="170" y1="150" x2="170" y2="90" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
             <line x1="210" y1="150" x2="210" y2="70" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
             <line x1="250" y1="150" x2="250" y2="50" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <!-- Label -->
             <text x="160" y="15" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">Discrete steps — same size at every level</text>
           </svg>
           <p class="text-txt-secondary text-sm">Fixed intervals, equal order sizes, no action outside range</p>
         </div>
-        <!-- traig: Smooth curve -->
         <div class="bg-surface border border-accent/20 rounded-xl p-6 text-center">
           <h3 class="text-lg font-semibold mb-4 text-accent">traig</h3>
           <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
-            <!-- Axes -->
             <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
             <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
             <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
             <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
-            <!-- Smooth piecewise-linear curve -->
             <polyline points="50,135 100,120 140,95 180,65 220,45 260,35" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Gradient fill -->
             <polygon points="50,135 100,120 140,95 180,65 220,45 260,35 260,150 50,150" fill="url(#blueGrad)" opacity="0.15"/>
             <defs>
               <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
@@ -200,14 +240,12 @@
                 <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
               </linearGradient>
             </defs>
-            <!-- Segment dots -->
             <circle cx="50" cy="135" r="3" fill="#3B82F6"/>
             <circle cx="100" cy="120" r="3" fill="#3B82F6"/>
             <circle cx="140" cy="95" r="3" fill="#3B82F6"/>
             <circle cx="180" cy="65" r="3" fill="#3B82F6"/>
             <circle cx="220" cy="45" r="3" fill="#3B82F6"/>
             <circle cx="260" cy="35" r="3" fill="#3B82F6"/>
-            <!-- Label -->
             <text x="160" y="15" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Continuous — adjust intensity per zone</text>
           </svg>
           <p class="text-txt-secondary text-sm">Smooth allocation, always defined, zone-specific intensity</p>
@@ -226,7 +264,7 @@
           </thead>
           <tbody class="text-txt-secondary">
             <tr class="border-b border-border/50 comparison-highlight">
-              <td class="py-3 px-4 text-txt-primary font-medium">Price→Action</td>
+              <td class="py-3 px-4 text-txt-primary font-medium">Price-Action</td>
               <td class="py-3 px-4">Discrete (staircase)</td>
               <td class="py-3 px-4 text-txt-primary">Continuous (smooth ramp)</td>
             </tr>
@@ -242,7 +280,7 @@
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Strategy Switch</td>
-              <td class="py-3 px-4">Manual stop → restart</td>
+              <td class="py-3 px-4">Manual stop &rarr; restart</td>
               <td class="py-3 px-4 text-txt-primary">Automatic transition</td>
             </tr>
             <tr class="comparison-highlight">
@@ -253,11 +291,53 @@
           </tbody>
         </table>
       </div>
+
+      <div class="text-center mt-8 fade-in-up">
+        <a href="strategy.html" class="text-accent hover:text-accent-hover transition-colors text-sm flex items-center justify-center gap-1">
+          Deep dive into strategy design
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Teaser -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center fade-in-up">
+        <div>
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Philosophy</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Built on conviction,<br>not hype</h2>
+          <p class="text-txt-secondary text-lg mb-6">100% non-custodial. No prediction dependency. Every AI prompt open and auditable. We believe systematic beats speculative.</p>
+          <a href="philosophy.html" class="text-accent hover:text-accent-hover transition-colors flex items-center gap-2">
+            Read our philosophy
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <div class="text-2xl font-bold text-accent mb-1">100%</div>
+            <div class="text-sm text-txt-secondary">Non-custodial</div>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <div class="text-2xl font-bold text-accent mb-1">Open</div>
+            <div class="text-sm text-txt-secondary">AI prompts</div>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <div class="text-2xl font-bold text-accent mb-1">Maker</div>
+            <div class="text-sm text-txt-secondary">Only orders</div>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <div class="text-2xl font-bold text-accent mb-1">24/7</div>
+            <div class="text-sm text-txt-secondary">Automated</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Target Audience -->
-  <section id="audience" class="py-20 sm:py-28 section-glow">
+  <section id="audience" class="py-20 sm:py-28 bg-bg-secondary section-glow">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-16 fade-in-up">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Built For</h2>
@@ -288,15 +368,12 @@
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Early Access</h2>
         <p class="text-txt-secondary text-lg mb-10">Join the waitlist and be the first to experience the next generation of crypto trading automation.</p>
       </div>
-      <!-- Tally Form Embed Placeholder -->
-      <div class="fade-in-up bg-surface border border-border rounded-xl p-8 sm:p-12">
-        <div class="text-center py-8">
-          <svg class="w-12 h-12 mx-auto mb-4 text-accent/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-          <p class="text-txt-secondary mb-2">Waitlist form loading...</p>
-          <p class="text-txt-secondary/50 text-sm">Tally embed will appear here</p>
-          <!-- Replace this div with: <iframe data-tally-src="https://tally.so/embed/YOUR_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="traig Waitlist"></iframe> -->
-          <!-- And add before </body>: <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s)}</script> -->
-        </div>
+      <div class="fade-in-up">
+        <button data-tally-open="obA1rN" data-tally-layout="modal" data-tally-overlay="1" data-tally-auto-close="3000" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-semibold py-4 px-10 rounded-lg text-lg transition-colors duration-200">
+          Join Waitlist
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </button>
+        <script>var d=document,w="https://tally.so/widgets/embed.js";if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=function(){typeof Tally!=="undefined"&&Tally.loadEmbeds()};d.body.appendChild(s)}</script>
       </div>
     </div>
   </section>
@@ -306,10 +383,11 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-6">
-          <span class="text-lg font-bold">traig</span>
-          <nav class="flex gap-4 text-sm text-txt-secondary">
-            <a href="#features" class="hover:text-txt-primary transition-colors">Features</a>
-            <a href="#comparison" class="hover:text-txt-primary transition-colors">Comparison</a>
+          <a href="index.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Philosophy</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">About</a>
             <a href="#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
           </nav>
         </div>

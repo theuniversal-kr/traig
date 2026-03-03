@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy — traig</title>
+  <meta name="description" content="Continuous piecewise-linear trading strategies that go beyond grid bots. Define your own recipes with traig.">
+  <meta property="og:title" content="Strategy — traig">
+  <meta property="og:description" content="Continuous piecewise-linear trading strategies that go beyond grid bots. Define your own recipes with traig.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/strategy.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Strategy — traig">
+  <meta name="twitter:description" content="Continuous piecewise-linear trading strategies that go beyond grid bots.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium hover:text-txt-primary transition-colors flex items-center gap-1">
+            Product
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">Strategy</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Dashboard</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Emergency Actions</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">History</a>
+            </div>
+          </div>
+        </div>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Philosophy</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">About</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="lang-switcher flex items-center gap-2 text-sm text-txt-secondary">
+          <a href="strategy.html" class="active">EN</a>
+          <span class="text-border">|</span>
+          <a href="ko/strategy.html">KO</a>
+          <span class="text-border">|</span>
+          <a href="vi/strategy.html">VI</a>
+        </div>
+        <a href="index.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Join Waitlist
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Product</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">Strategy</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Dashboard</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Emergency Actions</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">History</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Philosophy</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">About</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="index.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Join Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-32 pb-16 sm:pt-40 sm:pb-20 bg-grid-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="index.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Home
+        </a>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Continuous <span class="text-accent">Strategy</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-txt-secondary max-w-2xl">
+          Piecewise-linear recipes that map price to allocation smoothly — no rigid grid steps.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: What is a Recipe? -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Core Concept</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">What is a Recipe?</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>A Recipe is traig's trading strategy unit. It maps price to allocation using piecewise-linear segments — smooth, continuous, no steps.</p>
+            <p>Each recipe defines how much of your portfolio should be in the asset at any given price. As price moves, traig automatically rebalances to match your recipe using maker-only orders.</p>
+            <p>Unlike grid bots that react at fixed intervals, a recipe is always defined. Every price level has a clear, intentional instruction.</p>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <div class="screenshot-placeholder p-8">
+            <div class="text-center">
+              <svg class="w-14 h-14 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+              <p class="text-txt-secondary/50 text-sm">Recipe editor — screenshot coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Segments & Action Types -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Design</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Segments &amp; Action Types</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Segments define price ranges and their allocation slopes. You control exactly how aggressive or conservative each zone is.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in-up">
+        <!-- Feature card: Zone Control -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Zone Control</h3>
+          <p class="text-txt-secondary text-sm">Set steep slopes for high-conviction zones, gentle slopes where you want to move conservatively. Each segment is independently tuned.</p>
+        </div>
+        <!-- Feature card: Action Types -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Action Types</h3>
+          <p class="text-txt-secondary text-sm">Define each segment as buy-only, sell-only, or both. Prevent unwanted behavior in specific price zones with precise directional control.</p>
+        </div>
+        <!-- Feature card: Always Defined -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Always Defined</h3>
+          <p class="text-txt-secondary text-sm">Every price level is covered. No dead zones, no "out of range" gaps. traig always knows what to do, regardless of where the market moves.</p>
+        </div>
+      </div>
+      <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
+        <p class="text-txt-secondary text-base leading-relaxed">
+          Segments connect at control points — you define allocation at key price levels, and traig draws smooth ramps between them. The result is a strategy that feels natural, not mechanical. Increase intensity where you have conviction. Pull back where you're uncertain. Every inflection point is yours to control.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Automatic Transitions -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Automation</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Automatic Transitions</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Recipes can transition automatically based on conditions you set. No manual "stop bot, start new bot" — traig handles the switch seamlessly.</p>
+            <p>Set it up once, let it adapt. When conditions change, your strategy changes with them.</p>
+          </div>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Example</p>
+                <p class="text-txt-secondary text-sm">Switch from a range-trading recipe to a trend-following recipe when volatility spikes — automatically, without interrupting execution.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Seamless handoff</p>
+                <p class="text-txt-secondary text-sm">Transitions are smooth — traig blends from one recipe to the next without abrupt position changes or missed rebalancing windows.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <!-- Transition diagram -->
+          <div class="bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <p class="text-sm text-txt-secondary mb-6 text-center">Recipe transition flow</p>
+            <div class="space-y-3">
+              <div class="bg-bg-secondary rounded-lg p-4 border border-accent/20">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent"></div>
+                  <span class="text-sm font-medium">Recipe A — Range Trading</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">Active when market is ranging. Buys dips, sells rips within a defined band.</p>
+              </div>
+              <div class="flex items-center justify-center py-1">
+                <div class="flex items-center gap-2 text-xs text-txt-secondary">
+                  <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                  <span class="font-mono text-accent/70">if volatility &gt; threshold</span>
+                </div>
+              </div>
+              <div class="bg-bg-secondary rounded-lg p-4 border border-border">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent-cta"></div>
+                  <span class="text-sm font-medium">Recipe B — Trend Following</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">Automatically activated. Adjusts allocations to ride momentum rather than fade it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Grid Bot vs traig -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Grid Bot vs traig</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Grid bots were a good start. But markets deserve better. traig's piecewise-linear approach gives you the precision of a continuous function with the simplicity of defining a few control points.</p>
+      </div>
+
+      <!-- SVG Comparison -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-txt-secondary">Grid Bot</h3>
+          <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
+            <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
+            <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
+            <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
+            <polyline points="50,130 90,130 90,110 130,110 130,90 170,90 170,70 210,70 210,50 250,50 250,40" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="90" y1="150" x2="90" y2="130" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="130" y1="150" x2="130" y2="110" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="170" y1="150" x2="170" y2="90" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="210" y1="150" x2="210" y2="70" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="250" y1="150" x2="250" y2="50" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+            <text x="160" y="15" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">Discrete steps — same size at every level</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">Fixed intervals, equal order sizes, no action outside range</p>
+        </div>
+        <div class="bg-surface border border-accent/20 rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-accent">traig</h3>
+          <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
+            <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
+            <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
+            <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
+            <polyline points="50,135 100,120 140,95 180,65 220,45 260,35" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="50,135 100,120 140,95 180,65 220,45 260,35 260,150 50,150" fill="url(#blueGradStrategy)" opacity="0.15"/>
+            <defs>
+              <linearGradient id="blueGradStrategy" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="135" r="3" fill="#3B82F6"/>
+            <circle cx="100" cy="120" r="3" fill="#3B82F6"/>
+            <circle cx="140" cy="95" r="3" fill="#3B82F6"/>
+            <circle cx="180" cy="65" r="3" fill="#3B82F6"/>
+            <circle cx="220" cy="45" r="3" fill="#3B82F6"/>
+            <circle cx="260" cy="35" r="3" fill="#3B82F6"/>
+            <text x="160" y="15" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Continuous — adjust intensity per zone</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">Smooth allocation, always defined, zone-specific intensity</p>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto fade-in-up">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium"></th>
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium">Grid Bot</th>
+              <th class="text-left py-3 px-4 text-accent font-medium">traig</th>
+            </tr>
+          </thead>
+          <tbody class="text-txt-secondary">
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Price-Action</td>
+              <td class="py-3 px-4">Discrete (staircase)</td>
+              <td class="py-3 px-4 text-txt-primary">Continuous (smooth ramp)</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Out of Range</td>
+              <td class="py-3 px-4">No action</td>
+              <td class="py-3 px-4 text-txt-primary">Always defined behavior</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Zone Intensity</td>
+              <td class="py-3 px-4">Uniform everywhere</td>
+              <td class="py-3 px-4 text-txt-primary">Aggressive or conservative per zone</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Strategy Switch</td>
+              <td class="py-3 px-4">Manual stop &rarr; restart</td>
+              <td class="py-3 px-4 text-txt-primary">Automatic transition</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Management</td>
+              <td class="py-3 px-4">Parameter input</td>
+              <td class="py-3 px-4 text-txt-primary">AI conversation</td>
+            </tr>
+            <tr class="comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Execution</td>
+              <td class="py-3 px-4">Taker orders at grid levels</td>
+              <td class="py-3 px-4 text-txt-primary">Maker-only — fee optimized</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 waitlist-section">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to try it?</h2>
+      <p class="text-txt-secondary text-lg mb-10">Be among the first to build continuous strategies with traig.</p>
+      <a href="index.html#waitlist" class="inline-flex items-center justify-center px-8 py-4 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="index.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Philosophy</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">About</a>
+            <a href="index.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

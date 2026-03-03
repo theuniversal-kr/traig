@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI — traig</title>
+  <meta name="description" content="AI-powered crypto trading management. Create, modify, and manage strategies through natural conversation.">
+  <meta property="og:title" content="AI — traig">
+  <meta property="og:description" content="AI-powered crypto trading management. Create, modify, and manage strategies through natural conversation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/ai.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI — traig">
+  <meta name="twitter:description" content="AI-powered crypto trading management. Create, modify, and manage strategies through natural conversation.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <style>
+    .ai-hero-glow {
+      background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 65%);
+    }
+    .chat-bubble-user {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+    .chat-bubble-ai {
+      background: #1C1C26;
+      border: 1px solid #2A2A36;
+    }
+    .prompt-block {
+      background: #14141B;
+      border: 1px solid #2A2A36;
+      border-left: 3px solid #3B82F6;
+    }
+  </style>
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            Product
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Strategy</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Dashboard</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Emergency Actions</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">History</a>
+            </div>
+          </div>
+        </div>
+        <a href="ai.html" class="text-txt-primary font-medium transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Philosophy</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">About</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="lang-switcher flex items-center gap-2 text-sm text-txt-secondary">
+          <a href="ai.html" class="active">EN</a>
+          <span class="text-border">|</span>
+          <a href="ko/ai.html">KO</a>
+          <span class="text-border">|</span>
+          <a href="vi/ai.html">VI</a>
+        </div>
+        <a href="index.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Join Waitlist
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Product</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Strategy</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Dashboard</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Emergency Actions</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">History</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Philosophy</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">About</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="index.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Join Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="ai-hero-glow bg-grid-pattern pt-32 pb-16 sm:pt-40 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up max-w-3xl">
+        <a href="index.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Home
+        </a>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-accent/10 border border-accent/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <span class="text-accent text-sm font-medium tracking-wider uppercase">AI-Powered</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          AI-Powered<br><span class="text-accent">Trading</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-txt-secondary max-w-2xl">
+          Create, modify, and manage your strategies through conversation. No parameter forms, no spreadsheets — just plain language.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Talk to Your Strategy -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Natural Language</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Talk to Your Strategy</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>No more complex parameter forms or spreadsheet-like interfaces. Just tell the AI what you want.</p>
+            <p>The AI translates your intent into precise recipe modifications — adjusting slopes, zones, and transitions while preserving your overall risk profile.</p>
+          </div>
+          <div class="mt-8 space-y-3">
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Make it more aggressive below $60K"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Add a sell zone above $80K"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Reduce exposure during high volatility"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Switch to trend-following when BTC breaks $90K"</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock chat UI -->
+        <div class="fade-in-up">
+          <div class="bg-surface border border-border rounded-xl overflow-hidden">
+            <!-- Chat header -->
+            <div class="border-b border-border px-5 py-4 flex items-center gap-3">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium">traig AI</p>
+                <p class="text-xs text-txt-secondary">BTC/USDT — Recipe: Range Accumulator</p>
+              </div>
+              <div class="ml-auto w-2 h-2 rounded-full bg-accent-cta"></div>
+            </div>
+            <!-- Chat messages -->
+            <div class="px-5 py-6 space-y-5">
+              <!-- User message -->
+              <div class="flex justify-end">
+                <div class="chat-bubble-user rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%]">
+                  <p class="text-sm">I want to buy more aggressively when BTC drops below 55K</p>
+                </div>
+              </div>
+              <!-- AI response -->
+              <div class="flex gap-3">
+                <div class="w-7 h-7 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                </div>
+                <div class="chat-bubble-ai rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                  <p class="text-sm mb-3">I've updated your recipe. The allocation slope below $55,000 is now 2× steeper, increasing your buy intensity in that zone.</p>
+                  <div class="bg-bg-primary rounded-lg p-3 border border-border/50">
+                    <p class="text-xs text-txt-secondary mb-2 font-medium">Updated curve preview</p>
+                    <svg viewBox="0 0 240 100" class="w-full">
+                      <line x1="20" y1="85" x2="220" y2="85" stroke="#2A2A36" stroke-width="1"/>
+                      <line x1="20" y1="85" x2="20" y2="10" stroke="#2A2A36" stroke-width="1"/>
+                      <!-- Old curve (dimmed) -->
+                      <polyline points="30,78 90,68 130,55 170,42 210,30" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.3"/>
+                      <!-- New curve (bold below 55K zone) -->
+                      <polyline points="30,78 70,55 90,68 130,55 170,42 210,30" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <!-- Zone highlight -->
+                      <rect x="20" y="10" width="70" height="75" fill="#3B82F6" opacity="0.04"/>
+                      <line x1="90" y1="10" x2="90" y2="85" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+                      <text x="50" y="96" text-anchor="middle" fill="#3B82F6" font-size="7" font-family="Inter" opacity="0.6">&lt; $55K</text>
+                      <text x="160" y="96" text-anchor="middle" fill="#8A8A9A" font-size="7" font-family="Inter" opacity="0.6">above $55K</text>
+                    </svg>
+                  </div>
+                  <p class="text-xs text-txt-secondary mt-3">Ready to apply? Your current allocation is unchanged until you confirm.</p>
+                  <div class="flex gap-2 mt-3">
+                    <button class="text-xs px-3 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-lg">Apply changes</button>
+                    <button class="text-xs px-3 py-1.5 text-txt-secondary border border-border rounded-lg">Adjust more</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Input area -->
+            <div class="border-t border-border px-5 py-4">
+              <div class="flex items-center gap-3 bg-bg-secondary rounded-xl px-4 py-3 border border-border">
+                <input type="text" placeholder="Describe a strategy change..." class="flex-1 bg-transparent text-sm text-txt-secondary placeholder-txt-secondary/40 outline-none" disabled>
+                <svg class="w-4 h-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Recipe Creation -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up order-2 lg:order-1">
+          <div class="screenshot-placeholder p-8">
+            <div class="text-center">
+              <svg class="w-14 h-14 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+              <p class="text-txt-secondary/50 text-sm">Recipe creation flow — screenshot coming soon</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up order-1 lg:order-2">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Getting Started</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Recipe Creation</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Start from scratch or evolve an existing recipe. Describe your strategy in plain language — the AI suggests segment configurations based on your goals and risk tolerance.</p>
+            <p>Not sure where to begin? Tell the AI your general approach: range accumulation, trend riding, DCA with conviction zones. It builds the recipe, you refine it.</p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="bg-surface border border-border rounded-xl p-4">
+              <div class="text-accent text-2xl font-bold mb-1">New</div>
+              <div class="text-sm text-txt-secondary">Start from a conversation</div>
+            </div>
+            <div class="bg-surface border border-border rounded-xl p-4">
+              <div class="text-accent text-2xl font-bold mb-1">Fork</div>
+              <div class="text-sm text-txt-secondary">Modify an existing recipe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Strategy Modification -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Iteration</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Strategy Modification</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Adjust zones, slopes, and transitions without touching any parameters directly. Describe what feels wrong, the AI figures out what to change.</p>
+            <p>The AI shows you before-and-after comparisons so you can see exactly what will change before applying it. Real-time preview of how modifications affect your allocation curve.</p>
+          </div>
+          <div class="mt-8 space-y-3">
+            <div class="flex items-start gap-3 bg-surface border border-border rounded-xl p-4">
+              <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              <div>
+                <p class="text-sm font-medium mb-1">Before &amp; after preview</p>
+                <p class="text-txt-secondary text-sm">See exactly how the curve changes before committing. Approve, reject, or ask for further adjustments.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-surface border border-border rounded-xl p-4">
+              <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+              <div>
+                <p class="text-sm font-medium mb-1">Iterative refinement</p>
+                <p class="text-txt-secondary text-sm">Keep refining until the strategy feels right. Each conversation turn builds on the last.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <div class="screenshot-placeholder p-8">
+            <div class="text-center">
+              <svg class="w-14 h-14 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+              <p class="text-txt-secondary/50 text-sm">Strategy modification view — screenshot coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Market Monitoring -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Surveillance</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Market Monitoring</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">The AI watches the market so you don't have to. Get notified when conditions suggest strategy adjustments.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Condition Alerts</h3>
+          <p class="text-txt-secondary text-sm">AI-based alerts when market conditions shift in ways that may warrant reviewing your active recipe.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Always Watching</h3>
+          <p class="text-txt-secondary text-sm">Continuous monitoring, 24/7. Markets don't sleep, and neither does the AI watcher.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Still Evolving</h3>
+          <p class="text-txt-secondary text-sm">Market monitoring capabilities are actively being defined. Expect more here — early adopters will help shape this feature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Transparent AI -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="fade-in-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 bg-accent-cta/10 border border-accent-cta/20 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4 text-accent-cta" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <span class="text-accent-cta text-sm font-medium tracking-wider uppercase">Key Differentiator</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Transparent AI</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Every prompt sent to the AI is open and auditable. You can see exactly what instructions the AI receives — no black box, no hidden logic.</p>
+            <p>This is what "100% non-custodial" means for AI — not just your funds, but your strategy logic too. You verify, you trust.</p>
+            <p>When the AI modifies your recipe, you can inspect the exact system prompt it operated under. Nothing is hidden from you.</p>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <!-- Prompt block -->
+          <div class="rounded-xl overflow-hidden border border-border">
+            <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-border"></div>
+                <div class="w-3 h-3 rounded-full bg-border"></div>
+                <div class="w-3 h-3 rounded-full bg-border"></div>
+              </div>
+              <span class="text-xs text-txt-secondary font-mono">AI System Prompt — visible to you</span>
+            </div>
+            <div class="prompt-block p-5">
+              <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap"><span class="text-accent-cta">System:</span> You are a trading strategy assistant
+for traig. The user's current recipe has 3
+segments covering BTC price from $40,000 to
+$100,000:
+
+  Segment 1: $40K–$55K, slope 0.8 (buy-only)
+  Segment 2: $55K–$75K, slope 0.4 (both)
+  Segment 3: $75K–$100K, slope 0.2 (sell-only)
+
+Current allocation: 62% BTC, 38% USDT
+Risk profile: moderate
+
+Modify the recipe based on the user's request
+while maintaining the overall risk profile.
+Do not exceed max allocation of 85%.
+Return a structured JSON diff of changes.
+
+<span class="text-txt-secondary/40">[Full prompt visible in app settings]</span></pre>
+            </div>
+          </div>
+          <p class="text-txt-secondary text-sm mt-4 text-center">The complete system prompt is always accessible in your account settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Why AI Matters -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">The Case for AI</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why AI Matters for Trading</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">24/7 Markets</h3>
+          <p class="text-txt-secondary text-sm">Crypto never closes. Humans need sleep. AI bridges the gap — your strategy adapts even when you're offline.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Natural Interface</h3>
+          <p class="text-txt-secondary text-sm">Natural language is the most intuitive interface ever built. Strategy management should feel like talking to a knowledgeable colleague.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Democratized</h3>
+          <p class="text-txt-secondary text-sm">Systematic trading shouldn't require a PhD in quantitative finance. AI makes sophisticated strategies accessible to everyone.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Verifiable</h3>
+          <p class="text-txt-secondary text-sm">Every AI action is auditable. You're not trusting a black box — you're working with a transparent system you can fully inspect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 waitlist-section">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Experience AI-powered trading</h2>
+      <p class="text-txt-secondary text-lg mb-10">Join the waitlist and be among the first to manage strategies through conversation.</p>
+      <a href="index.html#waitlist" class="inline-flex items-center justify-center px-8 py-4 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="index.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Philosophy</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">About</a>
+            <a href="index.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
