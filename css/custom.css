@@ -1,0 +1,137 @@
+/* traig Landing Page — Custom Styles */
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Scroll-triggered fade-in animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* CTA button glow */
+.btn-glow {
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-glow:active {
+  transform: translateY(0);
+}
+
+/* Screenshot placeholder */
+.screenshot-placeholder {
+  background: linear-gradient(135deg, #1C1C26 0%, #14141B 100%);
+  border: 1px dashed #2A2A36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+/* Comparison section step/curve lines */
+.comparison-highlight {
+  transition: background-color 0.3s ease;
+}
+
+.comparison-highlight:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Language switcher */
+.lang-switcher a {
+  transition: color 0.2s ease;
+}
+
+.lang-switcher a:hover {
+  color: #60A5FA;
+}
+
+.lang-switcher a.active {
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero gradient overlay */
+.hero-gradient {
+  background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+}
+
+/* Section divider subtle glow */
+.section-glow {
+  position: relative;
+}
+
+.section-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+}
+
+/* Nav blur backdrop */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* SVG chart animation */
+.chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.chart-line.visible {
+  stroke-dashoffset: 0;
+}
+
+/* Waitlist section highlight */
+.waitlist-section {
+  background: linear-gradient(180deg, #0A0A0F 0%, #14141B 50%, #0A0A0F 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+  }
+}

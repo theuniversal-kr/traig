@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+.omc/
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
