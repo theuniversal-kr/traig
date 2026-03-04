@@ -879,7 +879,7 @@ var StrategyChart = (function () {
     // Header
     var thead = htmlEl('thead');
     var htr = htmlEl('tr', { borderBottom: '1px solid ' + THEME.border });
-    var headers = ['Month', 'PnL', 'PnL %', 'Start', 'End', 'Price O→C', 'Price L~H', 'Avg Alloc', 'Points'];
+    var headers = ['Month', 'PnL', 'PnL %', 'D/W', 'Start', 'End', 'Price O→C', 'Price L~H', 'Avg Alloc', 'Points'];
     headers.forEach(function (h) {
       var th = htmlEl('th', {
         textAlign: h === 'Month' ? 'left' : 'right', fontWeight: 'normal',
@@ -939,6 +939,17 @@ var StrategyChart = (function () {
       tr.appendChild(htmlEl('td', { textAlign: 'right', padding: '4px 6px', color: pnlColor, whiteSpace: 'nowrap' },
         pnlSign + pnlPct.toFixed(2) + '%'));
 
+      // D/W
+      var dwOffset = s.depositWithdrawalOffsetKrw;
+      if (dwOffset != null && dwOffset !== 0) {
+        var dwColor = dwOffset > 0 ? THEME.diffPositive : THEME.diffNegative;
+        var dwSign = dwOffset > 0 ? '+' : '';
+        tr.appendChild(htmlEl('td', { textAlign: 'right', padding: '4px 6px', color: dwColor, whiteSpace: 'nowrap' },
+          dwSign + Math.round(dwOffset).toLocaleString()));
+      } else {
+        tr.appendChild(htmlEl('td', { textAlign: 'right', padding: '4px 6px', color: THEME.muted, whiteSpace: 'nowrap' }, '—'));
+      }
+
       // Start / End
       tr.appendChild(htmlEl('td', { textAlign: 'right', padding: '4px 6px', whiteSpace: 'nowrap' },
         '\u20A9' + Math.round(s.startTotalKrw).toLocaleString()));
@@ -991,7 +1002,7 @@ var StrategyChart = (function () {
       totSign + Math.round(totalPnl).toLocaleString()));
     ftr.appendChild(htmlEl('td'));
     // Empty cells for remaining columns
-    for (var fi = 0; fi < 6; fi++) ftr.appendChild(htmlEl('td'));
+    for (var fi = 0; fi < 7; fi++) ftr.appendChild(htmlEl('td'));
     tfoot.appendChild(ftr);
     tbl.appendChild(tfoot);
 
