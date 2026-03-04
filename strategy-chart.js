@@ -344,6 +344,14 @@ var StrategyChart = (function () {
     this._root.appendChild(this._legendEl);
     this._svgWrap = htmlEl('div');
     this._root.appendChild(this._svgWrap);
+    this._feeEl = htmlEl('div', {
+      textAlign: 'right', fontSize: '11px', fontFamily: THEME.font,
+      color: THEME.muted, padding: '4px 8px 2px 0',
+    });
+    this._feeEl.appendChild(htmlEl('span', null, 'Trading fee: '));
+    this._feeEl.appendChild(htmlEl('span', { color: '#7dd3fc' }, '-0.01% (negative)'));
+    this._feeEl.appendChild(htmlEl('span', null, ' on maker'));
+    this._root.appendChild(this._feeEl);
     this._detailEl = htmlEl('div');
     this._root.appendChild(this._detailEl);
     this._reportsEl = htmlEl('div');
