@@ -63,17 +63,27 @@
         <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
         <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Philosophy</a>
         <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">About</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Business</a>
       </nav>
       <div class="flex items-center gap-4">
-        <div class="lang-switcher flex items-center gap-2 text-sm text-txt-secondary">
-          <a href="history.html" class="active">EN</a>
-          <span class="text-border">|</span>
-          <a href="ko/history.html">KO</a>
-          <span class="text-border">|</span>
-          <a href="vi/history.html">VI</a>
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary text-sm transition-colors flex items-center gap-1">
+            EN
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="ko/history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="vi/history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
         </div>
         <a href="index.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
           Join Waitlist
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          Contact
         </a>
         <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -92,6 +102,7 @@
         <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
         <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Philosophy</a>
         <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">About</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Business</a>
         <div class="border-t border-border my-2"></div>
         <a href="index.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Join Waitlist</a>
       </div>
@@ -264,6 +275,7 @@
             <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Philosophy</a>
             <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
             <a href="about.html" class="hover:text-txt-primary transition-colors">About</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">Business</a>
             <a href="index.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
           </nav>
         </div>
