@@ -210,43 +210,80 @@
       <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in-up">
         <div class="bg-surface border border-border rounded-xl p-6 text-center">
           <h3 class="text-lg font-semibold mb-4 text-txt-secondary">Grid Bot</h3>
-          <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
-            <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
-            <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
-            <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
-            <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
-            <polyline points="50,130 90,130 90,110 130,110 130,90 170,90 170,70 210,70 210,50 250,50 250,40" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="90" y1="150" x2="90" y2="130" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <line x1="130" y1="150" x2="130" y2="110" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <line x1="170" y1="150" x2="170" y2="90" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <line x1="210" y1="150" x2="210" y2="70" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <line x1="250" y1="150" x2="250" y2="50" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-            <text x="160" y="15" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">Discrete steps — same size at every level</text>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Y axis -->
+            <line x1="40" y1="20" x2="40" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <!-- X axis -->
+            <line x1="40" y1="175" x2="280" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <text x="160" y="195" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">Time</text>
+            <text x="12" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 12, 97)">Price</text>
+            <!-- Horizontal grid lines (evenly spaced levels) -->
+            <line x1="40" y1="35" x2="280" y2="35" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="60" x2="280" y2="60" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="85" x2="280" y2="85" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="110" x2="280" y2="110" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="135" x2="280" y2="135" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="160" x2="280" y2="160" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <!-- Sell labels (top lines) -->
+            <text x="284" y="38" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">sell</text>
+            <text x="284" y="63" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">sell</text>
+            <text x="284" y="88" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">sell</text>
+            <!-- Buy labels (bottom lines) -->
+            <text x="284" y="113" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">buy</text>
+            <text x="284" y="138" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">buy</text>
+            <text x="284" y="163" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">buy</text>
+            <!-- Price zigzag line bouncing between grid levels -->
+            <polyline points="48,85 68,60 88,85 108,110 128,85 148,60 168,85 188,135 208,110 228,85 248,110 268,85" fill="none" stroke="#8A8A9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+            <!-- Buy dots (green) when price hits lower levels -->
+            <circle cx="108" cy="110" r="3.5" fill="#EF4444"/>
+            <circle cx="188" cy="135" r="3.5" fill="#EF4444"/>
+            <circle cx="248" cy="110" r="3.5" fill="#EF4444"/>
+            <!-- Sell dots (green) when price hits upper levels -->
+            <circle cx="68" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="148" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="228" cy="85" r="3.5" fill="#10B981"/>
+            <text x="160" y="14" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">Fixed grid — buy low, sell high at equal intervals</text>
           </svg>
           <p class="text-txt-secondary text-sm">Fixed intervals, equal order sizes, no action outside range</p>
         </div>
         <div class="bg-surface border border-accent/20 rounded-xl p-6 text-center">
           <h3 class="text-lg font-semibold mb-4 text-accent">traig</h3>
-          <svg viewBox="0 0 300 180" class="w-full max-w-sm mx-auto mb-4">
-            <line x1="40" y1="150" x2="280" y2="150" stroke="#2A2A36" stroke-width="1"/>
-            <line x1="40" y1="150" x2="40" y2="20" stroke="#2A2A36" stroke-width="1"/>
-            <text x="160" y="172" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter">Price</text>
-            <text x="15" y="85" text-anchor="middle" fill="#8A8A9A" font-size="11" font-family="Inter" transform="rotate(-90, 15, 85)">Allocation</text>
-            <polyline points="50,135 100,120 140,95 180,65 220,45 260,35" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="50,135 100,120 140,95 180,65 220,45 260,35 260,150 50,150" fill="url(#blueGrad)" opacity="0.15"/>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Grid lines -->
+            <line x1="60" y1="30" x2="60" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="165" x2="275" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="30" x2="275" y2="30" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="75" x2="275" y2="75" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="120" x2="275" y2="120" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="114" y1="30" x2="114" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="168" y1="30" x2="168" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="221" y1="30" x2="221" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="275" y1="30" x2="275" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <!-- Axis labels -->
+            <text x="168" y="185" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">Allocation %</text>
+            <text x="15" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 15, 97)">Price</text>
+            <!-- X tick labels -->
+            <text x="60" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">0%</text>
+            <text x="114" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">25%</text>
+            <text x="168" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">50%</text>
+            <text x="221" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">75%</text>
+            <text x="275" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">100%</text>
             <defs>
               <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#3B82F6"/>
                 <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
               </linearGradient>
             </defs>
-            <circle cx="50" cy="135" r="3" fill="#3B82F6"/>
-            <circle cx="100" cy="120" r="3" fill="#3B82F6"/>
-            <circle cx="140" cy="95" r="3" fill="#3B82F6"/>
-            <circle cx="180" cy="65" r="3" fill="#3B82F6"/>
-            <circle cx="220" cy="45" r="3" fill="#3B82F6"/>
-            <circle cx="260" cy="35" r="3" fill="#3B82F6"/>
-            <text x="160" y="15" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Continuous — adjust intensity per zone</text>
+            <!-- Smooth continuous line: high price at 0% allocation, slopes down to low price at 100% -->
+            <polyline points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160 275,165 60,165" fill="url(#blueGrad)" opacity="0.15"/>
+            <!-- Control points -->
+            <circle cx="60" cy="30" r="3" fill="#3B82F6"/>
+            <circle cx="114" cy="60" r="3" fill="#3B82F6"/>
+            <circle cx="168" cy="105" r="3" fill="#3B82F6"/>
+            <circle cx="221" cy="140" r="3" fill="#3B82F6"/>
+            <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
+            <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Continuous — adjust intensity per zone</text>
           </svg>
           <p class="text-txt-secondary text-sm">Smooth allocation, always defined, zone-specific intensity</p>
         </div>
