@@ -116,8 +116,15 @@
     </div>
   </header>
 
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig is evolving fast — everything here is subject to change</p>
+    </div>
+  </div>
+
   <!-- Hero -->
-  <section class="ai-hero-glow bg-grid-pattern pt-32 pb-16 sm:pt-40 sm:pb-20">
+  <section class="ai-hero-glow bg-grid-pattern pt-40 pb-16 sm:pt-48 sm:pb-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="fade-in-up max-w-3xl">
         <a href="index.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
@@ -367,46 +374,92 @@
             </div>
             <span class="text-accent-cta text-sm font-medium tracking-wider uppercase">Key Differentiator</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Transparent AI</h2>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Fully Open AI</h2>
           <div class="space-y-4 text-txt-secondary text-lg">
-            <p>Every prompt sent to the AI is open and auditable. You can see exactly what instructions the AI receives — no black box, no hidden logic.</p>
-            <p>This is what "100% non-custodial" means for AI — not just your funds, but your strategy logic too. You verify, you trust.</p>
-            <p>When the AI modifies your recipe, you can inspect the exact system prompt it operated under. Nothing is hidden from you.</p>
+            <p>traig's AI layer is 100% non-custodial — not just your funds, but the AI itself.</p>
+          </div>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Open system prompts</p>
+                <p class="text-txt-secondary text-sm">Every system prompt is visible, editable, and forkable. Build your own trading agent with your own instructions.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Open tool specs (MCP)</p>
+                <p class="text-txt-secondary text-sm">All internal tools the AI uses — order placement, recipe modification, market data — are published as MCP specs with usage examples.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Bring your own model</p>
+                <p class="text-txt-secondary text-sm">Choose the AI model you want. Use your own API key. traig doesn't lock you into any single provider.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="fade-in-up">
-          <!-- Prompt block -->
-          <div class="rounded-xl overflow-hidden border border-border">
-            <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-border"></div>
-                <div class="w-3 h-3 rounded-full bg-border"></div>
-                <div class="w-3 h-3 rounded-full bg-border"></div>
+          <!-- Code blocks showing openness -->
+          <div class="space-y-4">
+            <!-- System prompt block -->
+            <div class="rounded-xl overflow-hidden border border-border">
+              <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                </div>
+                <span class="text-xs text-txt-secondary font-mono">system-prompt.md — editable</span>
               </div>
-              <span class="text-xs text-txt-secondary font-mono">AI System Prompt — visible to you</span>
+              <div class="prompt-block p-5">
+                <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap"><span class="text-accent-cta">System:</span> You are a trading strategy assistant.
+
+The user's recipe has 3 segments:
+  $40K–$55K, slope 0.8 (buy-only)
+  $55K–$75K, slope 0.4 (both)
+  $75K–$100K, slope 0.2 (sell-only)
+
+Max allocation: 85%
+Return a structured JSON diff.
+
+<span class="text-accent/60">// You can edit this entire prompt.</span>
+<span class="text-accent/60">// Fork it. Build your own agent.</span></pre>
+              </div>
             </div>
-            <div class="prompt-block p-5">
-              <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap"><span class="text-accent-cta">System:</span> You are a trading strategy assistant
-for traig. The user's current recipe has 3
-segments covering BTC price from $40,000 to
-$100,000:
-
-  Segment 1: $40K–$55K, slope 0.8 (buy-only)
-  Segment 2: $55K–$75K, slope 0.4 (both)
-  Segment 3: $75K–$100K, slope 0.2 (sell-only)
-
-Current allocation: 62% BTC, 38% USDT
-Risk profile: moderate
-
-Modify the recipe based on the user's request
-while maintaining the overall risk profile.
-Do not exceed max allocation of 85%.
-Return a structured JSON diff of changes.
-
-<span class="text-txt-secondary/40">[Full prompt visible in app settings]</span></pre>
+            <!-- MCP tools block -->
+            <div class="rounded-xl overflow-hidden border border-border">
+              <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                </div>
+                <span class="text-xs text-txt-secondary font-mono">tools/mcp-spec.json — public</span>
+              </div>
+              <div class="prompt-block p-5">
+                <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap">{
+  <span class="text-accent">"tools"</span>: [
+    <span class="text-accent">"modify_recipe"</span>,
+    <span class="text-accent">"place_order"</span>,
+    <span class="text-accent">"get_market_data"</span>,
+    <span class="text-accent">"get_allocation"</span>
+  ],
+  <span class="text-accent">"model"</span>: <span class="text-accent-cta">"user-selected"</span>,
+  <span class="text-accent">"api_key"</span>: <span class="text-accent-cta">"user-provided"</span>
+}</pre>
+              </div>
             </div>
           </div>
-          <p class="text-txt-secondary text-sm mt-4 text-center">The complete system prompt is always accessible in your account settings.</p>
         </div>
       </div>
     </div>
