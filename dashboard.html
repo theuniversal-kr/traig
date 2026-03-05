@@ -155,12 +155,7 @@
           </ul>
         </div>
         <div class="fade-in-up">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-              <p class="text-txt-secondary/50 text-sm">Strategy monitor — screenshot coming soon</p>
-            </div>
-          </div>
+          <img src="images/screenshots/dashboard.png" alt="traig Dashboard — Strategy Monitor, Balance, and Order Book" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
       </div>
     </div>
@@ -215,12 +210,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="fade-in-up order-2 lg:order-1">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/></svg>
-              <p class="text-txt-secondary/50 text-sm">Strategy-aware order book — screenshot coming soon</p>
-            </div>
-          </div>
+          <img src="images/screenshots/dashboard.png" alt="traig Dashboard — Strategy-aware Order Book" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
         <div class="fade-in-up order-1 lg:order-2">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">Strategy-Aware Order Book</h2>
@@ -285,6 +275,26 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Screenshot preview" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
   </script>
 </body>
 </html>

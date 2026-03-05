@@ -267,5 +267,25 @@
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
   </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Screenshot preview" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
 </body>
 </html>

@@ -273,12 +273,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="fade-in-up order-2 lg:order-1">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-14 h-14 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-              <p class="text-txt-secondary/50 text-sm">Recipe creation flow — screenshot coming soon</p>
-            </div>
-          </div>
+          <img src="images/screenshots/ai-advisor.png" alt="traig AI Advisor — Chat Interface" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
         <div class="fade-in-up order-1 lg:order-2">
           <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Getting Started</p>
@@ -331,12 +326,7 @@
           </div>
         </div>
         <div class="fade-in-up">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-14 h-14 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-              <p class="text-txt-secondary/50 text-sm">Strategy modification view — screenshot coming soon</p>
-            </div>
-          </div>
+          <img src="images/screenshots/ai-advisor.png" alt="traig AI Advisor — Strategy Modification" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
       </div>
     </div>
@@ -559,6 +549,26 @@ Return a structured JSON diff.
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Screenshot preview" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
   </script>
 </body>
 </html>

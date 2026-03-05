@@ -154,12 +154,7 @@
           </ul>
         </div>
         <div class="fade-in-up">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-              <p class="text-txt-secondary/50 text-sm">Backtest results — screenshot coming soon</p>
-            </div>
-          </div>
+          <img src="images/screenshots/backtest.png" alt="traig Backtest — Performance Chart with Transitions" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
       </div>
     </div>
@@ -274,6 +269,26 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Screenshot preview" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
   </script>
 </body>
 </html>

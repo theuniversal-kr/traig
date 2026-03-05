@@ -164,6 +164,49 @@ html {
   transform: translateX(-4px);
 }
 
+/* Screenshot lightbox modal */
+.screenshot-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+
+.screenshot-modal.active {
+  display: flex;
+}
+
+.screenshot-modal img {
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 0.75rem;
+  border: 1px solid #2A2A36;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: modal-in 0.2s ease-out;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+img[src*="screenshots"] {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+img[src*="screenshots"]:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bg-grid-pattern {

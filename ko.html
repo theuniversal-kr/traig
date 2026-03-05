@@ -98,12 +98,7 @@
           </div>
         </div>
         <div class="fade-in-up">
-          <div class="screenshot-placeholder p-8">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto mb-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-              <p class="text-txt-secondary/50 text-sm">스크린샷 준비 중</p>
-            </div>
-          </div>
+          <img src="images/screenshots/dashboard.png" alt="traig 대시보드" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
       </div>
     </div>
@@ -124,9 +119,7 @@
           </div>
           <h3 class="text-lg font-semibold mb-2">연속적 전략</h3>
           <p class="text-txt-secondary text-sm mb-4">피스와이즈 리니어 레시피로 가격에 따른 배분을 매끄럽게 매핑합니다. 단순한 그리드의 계단식 구조가 아닌, 구간별 강도 조절이 자유로운 전략.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">스크린샷 준비 중</p>
-          </div>
+          <img src="images/screenshots/strategy.png" alt="전략 관리" class="rounded-lg border border-border w-full h-40 object-cover object-top" loading="lazy">
         </div>
         <!-- Feature 2: AI-Powered Management -->
         <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
@@ -135,9 +128,7 @@
           </div>
           <h3 class="text-lg font-semibold mb-2">AI 기반 관리</h3>
           <p class="text-txt-secondary text-sm mb-4">대화를 통해 전략을 생성, 수정, 전환합니다. AI 챗봇이 레시피 관리를 담당합니다.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">스크린샷 준비 중</p>
-          </div>
+          <img src="images/screenshots/ai-advisor.png" alt="AI 어드바이저" class="rounded-lg border border-border w-full h-40 object-cover object-top" loading="lazy">
         </div>
         <!-- Feature 3: Backtesting -->
         <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
@@ -146,9 +137,7 @@
           </div>
           <h3 class="text-lg font-semibold mb-2">백테스팅</h3>
           <p class="text-txt-secondary text-sm mb-4">배포 전에 과거 분봉 데이터로 전략을 검증하세요. 보수적 체결 가정으로 현실적인 결과를 제공합니다.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">스크린샷 준비 중</p>
-          </div>
+          <img src="images/screenshots/history.png" alt="히스토리" class="rounded-lg border border-border w-full h-40 object-cover object-top" loading="lazy">
         </div>
         <!-- Feature 4: Non-Custodial -->
         <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
@@ -157,9 +146,7 @@
           </div>
           <h3 class="text-lg font-semibold mb-2">100% 비수탁형</h3>
           <p class="text-txt-secondary text-sm mb-4">내 키, 내 자산. 거래소 API 키로 직접 연결. 모든 AI 프롬프트가 공개되어 완전한 투명성을 제공합니다.</p>
-          <div class="screenshot-placeholder h-40">
-            <p class="text-txt-secondary/50 text-xs">스크린샷 준비 중</p>
-          </div>
+          <img src="images/screenshots/emergency.png" alt="긴급 조치" class="rounded-lg border border-border w-full h-40 object-cover object-top" loading="lazy">
         </div>
       </div>
     </div>
@@ -345,6 +332,26 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Screenshot preview" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
   </script>
 </body>
 </html>
