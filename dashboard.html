@@ -155,7 +155,7 @@
           </ul>
         </div>
         <div class="fade-in-up">
-          <img src="images/screenshots/dashboard.png" alt="traig Dashboard — Strategy Monitor, Balance, and Order Book" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+          <img src="images/screenshots/strategy-monitor.png" alt="traig Dashboard — Strategy Monitor showing target vs current allocation" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
         </div>
       </div>
     </div>
@@ -210,7 +210,53 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="fade-in-up order-2 lg:order-1">
-          <img src="images/screenshots/dashboard.png" alt="traig Dashboard — Strategy-aware Order Book" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+          <div class="relative" id="ob-carousel">
+            <!-- Slides -->
+            <div class="overflow-hidden rounded-xl border border-border shadow-2xl">
+              <div class="flex transition-transform duration-500 ease-in-out" id="ob-slides">
+                <img src="images/screenshots/orderbook-volume.png" alt="Order Book — Volume view" class="w-full shrink-0" loading="lazy">
+                <img src="images/screenshots/orderbook-depth-krw.png" alt="Order Book — Depth KRW" class="w-full shrink-0" loading="lazy">
+                <img src="images/screenshots/orderbook-depth-pct.png" alt="Order Book — Depth cumulative" class="w-full shrink-0" loading="lazy">
+              </div>
+            </div>
+            <!-- Captions -->
+            <div class="mt-4 text-center">
+              <p class="text-sm font-medium text-txt-primary ob-caption" data-slide="0"><span class="text-accent">Volume view</span> — your orders shown as % deviation from target allocation</p>
+              <p class="text-sm font-medium text-txt-primary ob-caption hidden" data-slide="1"><span class="text-accent">Depth view (₩)</span> — cumulative KRW depth at each price level</p>
+              <p class="text-sm font-medium text-txt-primary ob-caption hidden" data-slide="2"><span class="text-accent">Depth view (%)</span> — cumulative depth with your order % overlay</p>
+            </div>
+            <!-- Dots + Arrows -->
+            <div class="flex items-center justify-center gap-4 mt-3">
+              <button onclick="obNav(-1)" class="w-8 h-8 flex items-center justify-center rounded-full border border-border hover:border-accent text-txt-secondary hover:text-txt-primary transition-colors">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <div class="flex gap-2" id="ob-dots">
+                <button onclick="obGo(0)" class="w-2.5 h-2.5 rounded-full bg-accent transition-colors"></button>
+                <button onclick="obGo(1)" class="w-2.5 h-2.5 rounded-full bg-border transition-colors"></button>
+                <button onclick="obGo(2)" class="w-2.5 h-2.5 rounded-full bg-border transition-colors"></button>
+              </div>
+              <button onclick="obNav(1)" class="w-8 h-8 flex items-center justify-center rounded-full border border-border hover:border-accent text-txt-secondary hover:text-txt-primary transition-colors">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+          <script>
+            (function(){
+              var cur=0, total=3;
+              var slides=document.getElementById('ob-slides');
+              var dots=document.getElementById('ob-dots').children;
+              var caps=document.querySelectorAll('.ob-caption');
+              function update(){
+                slides.style.transform='translateX(-'+cur*100+'%)';
+                for(var i=0;i<total;i++){
+                  dots[i].className='w-2.5 h-2.5 rounded-full transition-colors '+(i===cur?'bg-accent':'bg-border');
+                  caps[i].classList.toggle('hidden',i!==cur);
+                }
+              }
+              window.obGo=function(i){cur=i;update()};
+              window.obNav=function(d){cur=(cur+d+total)%total;update()};
+            })();
+          </script>
         </div>
         <div class="fade-in-up order-1 lg:order-2">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">Strategy-Aware Order Book</h2>

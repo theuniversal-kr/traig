@@ -207,6 +207,19 @@ img[src*="screenshots"]:hover {
   box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
 }
 
+/* Step number decoration (How It Works) */
+.step-number {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(59, 130, 246, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  pointer-events: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bg-grid-pattern {
