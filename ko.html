@@ -45,10 +45,26 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="ko.html" class="text-xl font-bold tracking-tight">traig</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#features" class="text-txt-secondary hover:text-txt-primary transition-colors">기능</a>
-        <a href="#comparison" class="text-txt-secondary hover:text-txt-primary transition-colors">비교</a>
-        <a href="#audience" class="text-txt-secondary hover:text-txt-primary transition-colors">대상</a>
-        <a href="#waitlist" class="text-txt-secondary hover:text-txt-primary transition-colors">웨이트리스트</a>
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            제품
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="ko/strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">전략</a>
+              <a href="ko/dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
+              <a href="ko/backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
+              <a href="ko/emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">긴급 조치</a>
+              <a href="ko/history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">히스토리</a>
+            </div>
+          </div>
+        </div>
+        <a href="ko/track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
+        <a href="ko/ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="ko/philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
+        <a href="ko/about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">소개</a>
+        <a href="ko/business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">비즈니스</a>
       </nav>
       <div class="flex items-center gap-4">
         <div class="relative group">
@@ -77,9 +93,18 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
       <div class="px-4 py-4 space-y-1">
-        <a href="#features" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">기능</a>
-        <a href="#comparison" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비교</a>
-        <a href="#audience" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대상</a>
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
+        <a href="ko/strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">전략</a>
+        <a href="ko/dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
+        <a href="ko/backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
+        <a href="ko/emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
+        <a href="ko/history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">히스토리</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="ko/track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
+        <a href="ko/ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="ko/philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
+        <a href="ko/about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">소개</a>
+        <a href="ko/business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비즈니스</a>
         <div class="border-t border-border my-2"></div>
         <a href="#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
       </div>
@@ -467,9 +492,10 @@
         <div class="flex items-center gap-6">
           <a href="ko.html" class="text-lg font-bold">traig</a>
           <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
-            <a href="#features" class="hover:text-txt-primary transition-colors">기능</a>
-            <a href="#comparison" class="hover:text-txt-primary transition-colors">비교</a>
-            <a href="#audience" class="hover:text-txt-primary transition-colors">대상</a>
+            <a href="ko/philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
+            <a href="ko/ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="ko/about.html" class="hover:text-txt-primary transition-colors">소개</a>
+            <a href="ko/business.html" class="hover:text-txt-primary transition-colors">비즈니스</a>
             <a href="#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
           </nav>
         </div>

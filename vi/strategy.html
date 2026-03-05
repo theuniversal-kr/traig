@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiến lược — traig</title>
+  <meta name="description" content="Chiến lược giao dịch tuyến tính từng phần liên tục, vượt trội hơn grid bot. Tự định nghĩa công thức của bạn với traig.">
+  <meta property="og:title" content="Chiến lược — traig">
+  <meta property="og:description" content="Chiến lược giao dịch tuyến tính từng phần liên tục, vượt trội hơn grid bot. Tự định nghĩa công thức của bạn với traig.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/vi/strategy.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chiến lược — traig">
+  <meta name="twitter:description" content="Chiến lược giao dịch tuyến tính từng phần liên tục, vượt trội hơn grid bot.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../vi.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium hover:text-txt-primary transition-colors flex items-center gap-1">
+            Sản phẩm
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">Chiến lược</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Bảng điều khiển</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Hành động khẩn cấp</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Lịch sử</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Thành tích</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Triết lý</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Giới thiệu</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary text-sm transition-colors flex items-center gap-1">
+            VI
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="../ko/strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../vi.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Tham gia Waitlist
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          Liên hệ
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Sản phẩm</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">Chiến lược</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Bảng điều khiển</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Hành động khẩn cấp</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Lịch sử</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Thành tích</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Triết lý</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Giới thiệu</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Doanh nghiệp</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../vi.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Tham gia Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig đang phát triển nhanh chóng — mọi thứ ở đây có thể thay đổi</p>
+    </div>
+  </div>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20 bg-grid-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../vi.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Trang chủ
+        </a>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <span class="text-accent">Chiến lược</span> Liên tục
+        </h1>
+        <p class="text-lg sm:text-xl text-txt-secondary max-w-2xl">
+          Các công thức tuyến tính từng phần ánh xạ giá sang phân bổ một cách mượt mà — không có bước grid cứng nhắc.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: What is a Recipe? -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Khái niệm cốt lõi</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Công thức là gì?</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Công thức (Recipe) là đơn vị chiến lược giao dịch của traig. Nó ánh xạ giá sang phân bổ bằng các đoạn tuyến tính từng phần — mượt mà, liên tục, không có bậc thang.</p>
+            <p>Mỗi công thức xác định bao nhiêu phần tài sản của bạn nên ở trong đồng coin tại bất kỳ mức giá nào. Khi giá di chuyển, traig tự động tái cân bằng theo công thức của bạn bằng các lệnh chỉ-maker.</p>
+            <p>Khác với grid bot phản ứng theo khoảng cố định, một công thức luôn được xác định. Mỗi mức giá đều có hướng dẫn rõ ràng, có chủ đích.</p>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <img src="../images/screenshots/recipe-detail.png" alt="Chiến lược traig — Chi tiết Công thức với Đường Phân bổ và Backtest" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Segments & Action Types -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Thiết kế</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Đoạn &amp; Loại hành động</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Các đoạn xác định phạm vi giá và độ dốc phân bổ của chúng. Bạn kiểm soát chính xác mức độ tích cực hay thận trọng của từng vùng.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in-up">
+        <!-- Feature card: Zone Control -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Kiểm soát vùng</h3>
+          <p class="text-txt-secondary text-sm">Đặt độ dốc lớn cho các vùng có độ tin cậy cao, độ dốc nhẹ cho nơi bạn muốn di chuyển thận trọng. Mỗi đoạn được tinh chỉnh độc lập.</p>
+        </div>
+        <!-- Feature card: Action Types -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Loại hành động</h3>
+          <p class="text-txt-secondary text-sm">Xác định mỗi đoạn là chỉ mua, chỉ bán, hoặc cả hai. Ngăn hành vi không mong muốn trong các vùng giá cụ thể với kiểm soát hướng chính xác.</p>
+        </div>
+        <!-- Feature card: Always Defined -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Luôn được xác định</h3>
+          <p class="text-txt-secondary text-sm">Mọi mức giá đều được bao phủ. Không có vùng chết, không có khoảng trống "ngoài phạm vi". traig luôn biết phải làm gì, bất kể thị trường di chuyển đến đâu.</p>
+        </div>
+      </div>
+      <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
+        <p class="text-txt-secondary text-base leading-relaxed">
+          Các đoạn kết nối tại các điểm kiểm soát — bạn xác định phân bổ tại các mức giá chính, và traig vẽ các đường dốc mượt mà giữa chúng. Kết quả là một chiến lược cảm giác tự nhiên, không máy móc. Tăng cường độ ở nơi bạn có niềm tin. Thu lại ở nơi bạn không chắc. Mỗi điểm uốn đều do bạn kiểm soát.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Automatic Transitions -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Tự động hóa</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Chuyển đổi tự động</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Các công thức có thể chuyển đổi tự động dựa trên các điều kiện bạn đặt ra. Không cần "dừng bot, khởi động bot mới" thủ công — traig xử lý việc chuyển đổi một cách liền mạch.</p>
+            <p>Cài đặt một lần, để nó thích nghi. Khi điều kiện thay đổi, chiến lược của bạn thay đổi theo.</p>
+          </div>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Ví dụ</p>
+                <p class="text-txt-secondary text-sm">Chuyển từ công thức giao dịch theo dải sang công thức theo xu hướng khi biến động tăng đột ngột — tự động, không gián đoạn việc thực thi.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Bàn giao liền mạch</p>
+                <p class="text-txt-secondary text-sm">Các chuyển đổi diễn ra mượt mà — traig kết hợp từ công thức này sang công thức tiếp theo mà không có sự thay đổi vị thế đột ngột hay bỏ lỡ cửa sổ tái cân bằng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <!-- Transition diagram -->
+          <div class="bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <p class="text-sm text-txt-secondary mb-6 text-center">Luồng chuyển đổi công thức</p>
+            <div class="space-y-3">
+              <div class="bg-bg-secondary rounded-lg p-4 border border-accent/20">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent"></div>
+                  <span class="text-sm font-medium">Công thức A — Giao dịch theo dải</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">Kích hoạt khi thị trường đi ngang. Mua khi giảm, bán khi tăng trong một dải xác định.</p>
+              </div>
+              <div class="flex items-center justify-center py-1">
+                <div class="flex items-center gap-2 text-xs text-txt-secondary">
+                  <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                  <span class="font-mono text-accent/70">if volatility &gt; threshold</span>
+                </div>
+              </div>
+              <div class="bg-bg-secondary rounded-lg p-4 border border-border">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent-cta"></div>
+                  <span class="text-sm font-medium">Công thức B — Theo xu hướng</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">Tự động kích hoạt. Điều chỉnh phân bổ để đi theo đà thay vì chống lại nó.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Grid Bot vs traig -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Grid Bot so với traig</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Grid bot là khởi đầu tốt. Nhưng thị trường xứng đáng với điều tốt hơn. Phương pháp tuyến tính từng phần của traig cho bạn độ chính xác của hàm liên tục với sự đơn giản của việc xác định một vài điểm kiểm soát.</p>
+      </div>
+
+      <!-- SVG Comparison -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-txt-secondary">Grid Bot</h3>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Y axis -->
+            <line x1="40" y1="20" x2="40" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <!-- X axis -->
+            <line x1="40" y1="175" x2="280" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <text x="160" y="195" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">Thời gian</text>
+            <text x="12" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 12, 97)">Giá</text>
+            <!-- Horizontal grid lines (evenly spaced levels) -->
+            <line x1="40" y1="35" x2="280" y2="35" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="60" x2="280" y2="60" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="85" x2="280" y2="85" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="110" x2="280" y2="110" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="135" x2="280" y2="135" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="160" x2="280" y2="160" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <!-- Sell labels (top lines) -->
+            <text x="284" y="38" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">bán</text>
+            <text x="284" y="63" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">bán</text>
+            <text x="284" y="88" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">bán</text>
+            <!-- Buy labels (bottom lines) -->
+            <text x="284" y="113" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">mua</text>
+            <text x="284" y="138" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">mua</text>
+            <text x="284" y="163" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">mua</text>
+            <!-- Price zigzag line bouncing between grid levels -->
+            <polyline points="48,85 68,60 88,85 108,110 128,85 148,60 168,85 188,135 208,110 228,85 248,110 268,85" fill="none" stroke="#8A8A9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+            <!-- Buy dots (red) when price hits lower levels -->
+            <circle cx="108" cy="110" r="3.5" fill="#EF4444"/>
+            <circle cx="188" cy="135" r="3.5" fill="#EF4444"/>
+            <circle cx="248" cy="110" r="3.5" fill="#EF4444"/>
+            <!-- Sell dots (green) when price hits upper levels -->
+            <circle cx="68" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="148" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="228" cy="85" r="3.5" fill="#10B981"/>
+            <text x="160" y="14" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">Grid cố định — mua thấp, bán cao theo khoảng đều</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">Khoảng cách cố định, kích thước lệnh bằng nhau, không hành động ngoài phạm vi</p>
+        </div>
+        <div class="bg-surface border border-accent/20 rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-accent">traig</h3>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Grid lines -->
+            <line x1="60" y1="30" x2="60" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="165" x2="275" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="30" x2="275" y2="30" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="75" x2="275" y2="75" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="120" x2="275" y2="120" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="114" y1="30" x2="114" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="168" y1="30" x2="168" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="221" y1="30" x2="221" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="275" y1="30" x2="275" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <!-- Axis labels -->
+            <text x="168" y="185" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">Phân bổ %</text>
+            <text x="15" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 15, 97)">Giá</text>
+            <!-- X tick labels -->
+            <text x="60" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">0%</text>
+            <text x="114" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">25%</text>
+            <text x="168" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">50%</text>
+            <text x="221" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">75%</text>
+            <text x="275" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">100%</text>
+            <defs>
+              <linearGradient id="blueGradStrategy" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Smooth continuous line: high price at 0% allocation, slopes down to low price at 100% -->
+            <polyline points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160 275,165 60,165" fill="url(#blueGradStrategy)" opacity="0.15"/>
+            <!-- Control points -->
+            <circle cx="60" cy="30" r="3" fill="#3B82F6"/>
+            <circle cx="114" cy="60" r="3" fill="#3B82F6"/>
+            <circle cx="168" cy="105" r="3" fill="#3B82F6"/>
+            <circle cx="221" cy="140" r="3" fill="#3B82F6"/>
+            <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
+            <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Liên tục — điều chỉnh cường độ theo từng vùng</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">Phân bổ mượt mà, luôn được xác định, cường độ theo từng vùng</p>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto fade-in-up">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium"></th>
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium">Grid Bot</th>
+              <th class="text-left py-3 px-4 text-accent font-medium">traig</th>
+            </tr>
+          </thead>
+          <tbody class="text-txt-secondary">
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Phản ứng giá</td>
+              <td class="py-3 px-4">Rời rạc (bậc thang)</td>
+              <td class="py-3 px-4 text-txt-primary">Liên tục (dốc mượt)</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Ngoài phạm vi</td>
+              <td class="py-3 px-4">Không hành động</td>
+              <td class="py-3 px-4 text-txt-primary">Hành vi luôn được xác định</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Cường độ vùng</td>
+              <td class="py-3 px-4">Đồng đều khắp nơi</td>
+              <td class="py-3 px-4 text-txt-primary">Tích cực hoặc thận trọng theo từng vùng</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Đổi chiến lược</td>
+              <td class="py-3 px-4">Dừng thủ công &rarr; khởi động lại</td>
+              <td class="py-3 px-4 text-txt-primary">Chuyển đổi tự động</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Quản lý</td>
+              <td class="py-3 px-4">Nhập tham số</td>
+              <td class="py-3 px-4 text-txt-primary">Trò chuyện với AI</td>
+            </tr>
+            <tr class="comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">Thực thi</td>
+              <td class="py-3 px-4">Lệnh taker tại các mức grid</td>
+              <td class="py-3 px-4 text-txt-primary">Chỉ-maker — tối ưu phí</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 waitlist-section">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Sẵn sàng thử chưa?</h2>
+      <p class="text-txt-secondary text-lg mb-10">Hãy là người đầu tiên xây dựng chiến lược liên tục với traig.</p>
+      <a href="../vi.html#waitlist" class="inline-flex items-center justify-center px-8 py-4 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Tham gia Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../vi.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Triết lý</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">Giới thiệu</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+            <a href="../vi.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Xem trước ảnh chụp màn hình" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

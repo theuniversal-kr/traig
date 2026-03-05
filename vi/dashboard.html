@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng điều khiển — traig</title>
+  <meta name="description" content="Theo dõi và quản lý các chiến lược giao dịch của bạn với bảng điều khiển trực quan của traig.">
+  <meta property="og:title" content="Bảng điều khiển — traig">
+  <meta property="og:description" content="Theo dõi và quản lý các chiến lược giao dịch của bạn với bảng điều khiển trực quan của traig.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/vi/dashboard.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bảng điều khiển — traig">
+  <meta name="twitter:description" content="Theo dõi và quản lý các chiến lược giao dịch của bạn với bảng điều khiển trực quan của traig.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../vi.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            Sản phẩm
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Chiến lược</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">Bảng điều khiển</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Hành động khẩn cấp</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Lịch sử</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Thành tích</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Triết lý</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Giới thiệu</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            VI
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="../ko/dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../vi.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Tham gia Waitlist
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          Liên hệ
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Sản phẩm</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Chiến lược</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">Bảng điều khiển</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Hành động khẩn cấp</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Lịch sử</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Thành tích</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Triết lý</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Giới thiệu</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Doanh nghiệp</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../vi.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Tham gia Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig đang phát triển nhanh chóng — mọi thứ ở đây có thể thay đổi</p>
+    </div>
+  </div>
+
+  <!--Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../vi.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary transition-colors text-sm mb-8">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Trang chủ
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Bảng điều khiển</h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">Tất cả những gì bạn cần để theo dõi chiến lược chỉ trong một cái nhìn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Strategy Monitor -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Theo dõi chiến lược</h2>
+          <p class="text-txt-secondary text-lg mb-6">Xem chính xác vị trí hiện tại so với mục tiêu. Màn hình theo dõi chiến lược hiển thị <span class="text-txt-primary font-medium">phân bổ mục tiêu</span> từ công thức cùng với <span class="text-txt-primary font-medium">phân bổ hiện tại</span> theo thời gian thực.</p>
+          <ul class="space-y-3 text-txt-secondary">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Phân bổ mục tiêu so với hiện tại theo giá hiện hành
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Mức lệch và hành động traig đang thực hiện để thu hẹp khoảng cách
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Cập nhật trực tiếp — không cần tải lại trang
+            </li>
+          </ul>
+        </div>
+        <div class="fade-in-up">
+          <img src="../images/screenshots/strategy-monitor.png" alt="Bảng điều khiển traig — Màn hình theo dõi chiến lược hiển thị phân bổ mục tiêu và hiện tại" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Features -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Tất cả trong một nơi</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Bảng điều khiển tập hợp mọi thứ bạn cần để quản lý giao dịch.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 fade-in-up">
+        <!-- Strategy Shortcuts -->
+        <div class="bg-surface border border-border rounded-xl p-5">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-txt-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">Phím tắt chiến lược</h3>
+          <p class="text-txt-secondary text-sm">Truy cập nhanh vào các công thức đã lưu. Chuyển đổi chiến lược, tạm dừng hoặc điều chỉnh — tất cả trong tầm tay.</p>
+        </div>
+        <!-- Exchange Info -->
+        <div class="bg-surface border border-border rounded-xl p-5">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">Thông tin sàn giao dịch</h3>
+          <p class="text-txt-secondary text-sm">Lấy dữ liệu sàn giao dịch theo thời gian thực — số dư khả dụng, số tiền bị khóa và trạng thái tài khoản.</p>
+        </div>
+        <!-- Manual Order -->
+        <div class="bg-surface border border-border rounded-xl p-5">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">Lệnh thủ công</h3>
+          <p class="text-txt-secondary text-sm">Đặt lệnh trực tiếp từ bảng điều khiển khi bạn muốn kiểm soát thủ công. Không cần chuyển sang sàn giao dịch.</p>
+        </div>
+        <!-- Order List -->
+        <div class="bg-surface border border-border rounded-xl p-5">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-txt-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">Danh sách lệnh</h3>
+          <p class="text-txt-secondary text-sm">Xem tất cả các lệnh đang chờ và đã khớp. Theo dõi hành động của traig và những gì đã được thực hiện.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Strategy-Aware Order Book -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up order-2 lg:order-1">
+          <div class="relative" id="ob-carousel">
+            <!-- Slides -->
+            <div class="overflow-hidden rounded-xl border border-border shadow-2xl">
+              <div class="flex transition-transform duration-500 ease-in-out" id="ob-slides">
+                <img src="../images/screenshots/orderbook-volume.png" alt="Sổ lệnh — Chế độ xem khối lượng" class="w-full shrink-0" loading="lazy">
+                <img src="../images/screenshots/orderbook-depth-krw.png" alt="Sổ lệnh — Độ sâu KRW" class="w-full shrink-0" loading="lazy">
+                <img src="../images/screenshots/orderbook-depth-pct.png" alt="Sổ lệnh — Độ sâu tích lũy" class="w-full shrink-0" loading="lazy">
+              </div>
+            </div>
+            <!-- Captions -->
+            <div class="mt-4 text-center">
+              <p class="text-sm font-medium text-txt-primary ob-caption" data-slide="0"><span class="text-accent">Chế độ xem khối lượng</span> — lệnh của bạn hiển thị theo % lệch so với phân bổ mục tiêu</p>
+              <p class="text-sm font-medium text-txt-primary ob-caption hidden" data-slide="1"><span class="text-accent">Chế độ xem độ sâu (₩)</span> — độ sâu KRW tích lũy tại mỗi mức giá</p>
+              <p class="text-sm font-medium text-txt-primary ob-caption hidden" data-slide="2"><span class="text-accent">Chế độ xem độ sâu (%)</span> — độ sâu tích lũy với lớp phủ % lệnh của bạn</p>
+            </div>
+            <!-- Dots + Arrows -->
+            <div class="flex items-center justify-center gap-4 mt-3">
+              <button onclick="obNav(-1)" class="w-8 h-8 flex items-center justify-center rounded-full border border-border hover:border-accent text-txt-secondary hover:text-txt-primary transition-colors">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <div class="flex gap-2" id="ob-dots">
+                <button onclick="obGo(0)" class="w-2.5 h-2.5 rounded-full bg-accent transition-colors"></button>
+                <button onclick="obGo(1)" class="w-2.5 h-2.5 rounded-full bg-border transition-colors"></button>
+                <button onclick="obGo(2)" class="w-2.5 h-2.5 rounded-full bg-border transition-colors"></button>
+              </div>
+              <button onclick="obNav(1)" class="w-8 h-8 flex items-center justify-center rounded-full border border-border hover:border-accent text-txt-secondary hover:text-txt-primary transition-colors">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+          <script>
+            (function(){
+              var cur=0, total=3;
+              var slides=document.getElementById('ob-slides');
+              var dots=document.getElementById('ob-dots').children;
+              var caps=document.querySelectorAll('.ob-caption');
+              function update(){
+                slides.style.transform='translateX(-'+cur*100+'%)';
+                for(var i=0;i<total;i++){
+                  dots[i].className='w-2.5 h-2.5 rounded-full transition-colors '+(i===cur?'bg-accent':'bg-border');
+                  caps[i].classList.toggle('hidden',i!==cur);
+                }
+              }
+              window.obGo=function(i){cur=i;update()};
+              window.obNav=function(d){cur=(cur+d+total)%total;update()};
+            })();
+          </script>
+        </div>
+        <div class="fade-in-up order-1 lg:order-2">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Sổ lệnh theo chiến lược</h2>
+          <p class="text-txt-secondary text-lg mb-6">Không chỉ là một sổ lệnh thông thường. traig hiển thị chiến lược của bạn lên trên sổ lệnh trực tiếp, cho thấy chính xác vị trí lệnh maker của bạn so với thị trường.</p>
+          <ul class="space-y-3 text-txt-secondary">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Lệnh của bạn được làm nổi bật trong sổ lệnh trực tiếp
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Xem chiến lược của bạn tương tác với độ sâu thị trường như thế nào
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Cập nhật theo thời gian thực khi thị trường biến động
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 bg-bg-secondary">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Sẵn sàng bắt đầu?</h2>
+      <p class="text-txt-secondary text-lg mb-8">Tham gia waitlist để truy cập sớm traig.</p>
+      <a href="../vi.html#waitlist" class="inline-flex items-center justify-center px-6 py-3 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Tham gia Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../vi.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Triết lý</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">Giới thiệu</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+            <a href="../vi.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Xem trước ảnh chụp màn hình" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

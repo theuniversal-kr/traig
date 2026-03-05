@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hành động khẩn cấp — traig</title>
+  <meta name="description" content="Hành động nhanh khi thị trường biến động. Thanh lý khẩn cấp và kiểm soát vị thế tức thì với traig.">
+  <meta property="og:title" content="Hành động khẩn cấp — traig">
+  <meta property="og:description" content="Hành động nhanh khi thị trường biến động. Thanh lý khẩn cấp và kiểm soát vị thế tức thì với traig.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/vi/emergency.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hành động khẩn cấp — traig">
+  <meta name="twitter:description" content="Hành động nhanh khi thị trường biến động. Thanh lý khẩn cấp và kiểm soát vị thế tức thì với traig.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../vi.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            Sản phẩm
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Chiến lược</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Bảng điều khiển</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">Hành động khẩn cấp</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Lịch sử</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Thành tích</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Triết lý</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Giới thiệu</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            VI
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="../ko/emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../vi.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Tham gia Waitlist
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          Liên hệ
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Sản phẩm</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Chiến lược</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Bảng điều khiển</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">Hành động khẩn cấp</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Lịch sử</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Thành tích</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Triết lý</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Giới thiệu</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Doanh nghiệp</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../vi.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Tham gia Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig đang phát triển nhanh chóng — mọi thứ ở đây có thể thay đổi</p>
+    </div>
+  </div>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../vi.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary transition-colors text-sm mb-8">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Trang chủ
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Hành động khẩn cấp</h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">Khi thị trường biến động nhanh, bạn cần hành động nhanh hơn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: When Every Second Counts -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Khi mỗi giây đều quan trọng</h2>
+        <ul class="space-y-4 text-txt-secondary text-lg">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Thị trường có thể biến động mạnh. Công cụ của bạn phải theo kịp.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            traig cung cấp các điều khiển khẩn cấp tức thì cho những thời điểm quan trọng.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Không cần điều hướng qua các menu. Hành động trực tiếp, ngay lập tức.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Available Actions -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Các hành động có sẵn</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">Điều khiển trực tiếp cho những lúc quan trọng nhất.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto fade-in-up">
+        <!-- Card 1: Emergency Liquidation -->
+        <div class="bg-surface border border-red-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Thanh lý khẩn cấp</h3>
+          <p class="text-txt-secondary text-sm">Chuyển đổi tất cả sang tiền tệ báo giá ngay lập tức. Một nút, xác nhận, thực thi.</p>
+        </div>
+        <!-- Card 2: Strategy Pause -->
+        <div class="bg-surface border border-yellow-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Tạm dừng chiến lược</h3>
+          <p class="text-txt-secondary text-sm">Dừng tất cả giao dịch tự động ngay lập tức trong khi giữ nguyên các vị thế hiện tại.</p>
+        </div>
+        <!-- Card 3: Force Rebalance -->
+        <div class="bg-surface border border-yellow-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Tái cân bằng ngay</h3>
+          <p class="text-txt-secondary text-sm">Kích hoạt tái cân bằng ngay lập tức để khớp với mục tiêu công thức hiện tại.</p>
+        </div>
+        <!-- Card 4: Cancel All Orders -->
+        <div class="bg-surface border border-red-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Hủy tất cả lệnh</h3>
+          <p class="text-txt-secondary text-sm">Hủy tất cả các lệnh đang chờ trên tất cả các cặp ngay lập tức.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Safety by Design -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">An toàn theo thiết kế</h2>
+        <ul class="space-y-4 text-txt-secondary text-lg">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Các hành động khẩn cấp yêu cầu xác nhận để tránh kích hoạt nhầm.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Tất cả các hành động khẩn cấp được ghi lại và có thể kiểm tra.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Cam kết không giữ hộ vẫn được đảm bảo ngay cả trong khẩn cấp — sàn của bạn, thực thi của bạn.
+          </li>
+        </ul>
+        <div class="mt-8 bg-surface border border-border rounded-xl p-6">
+          <p class="text-txt-secondary">traig được thiết kế để bạn hiếm khi cần đến những tính năng này. Nhưng khi cần, chúng chỉ cách một cú nhấp chuột.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 bg-bg-secondary">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Sẵn sàng bắt đầu?</h2>
+      <p class="text-txt-secondary text-lg mb-8">Tham gia waitlist để truy cập sớm traig.</p>
+      <a href="../vi.html#waitlist" class="inline-flex items-center justify-center px-6 py-3 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Tham gia Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../vi.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Triết lý</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">Giới thiệu</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+            <a href="../vi.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Xem trước ảnh chụp màn hình" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>긴급 조치 — traig</title>
+  <meta name="description" content="시장이 움직일 때 빠르게 대응하세요. traig의 긴급 청산 및 즉각적인 포지션 컨트롤.">
+  <meta property="og:title" content="긴급 조치 — traig">
+  <meta property="og:description" content="시장이 움직일 때 빠르게 대응하세요. traig의 긴급 청산 및 즉각적인 포지션 컨트롤.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/ko/emergency.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="긴급 조치 — traig">
+  <meta name="twitter:description" content="시장이 움직일 때 빠르게 대응하세요. traig의 긴급 청산 및 즉각적인 포지션 컨트롤.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../ko.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            제품
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">전략</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">긴급 조치</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">히스토리</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">소개</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">비즈니스</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            KO
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="../vi/emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../ko.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          웨이트리스트 등록
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          문의
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">전략</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">히스토리</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">소개</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비즈니스</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../ko.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig는 빠르게 진화 중입니다 — 여기 있는 모든 것은 변경될 수 있습니다</p>
+    </div>
+  </div>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../ko.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary transition-colors text-sm mb-8">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          홈
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">긴급 조치</h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">시장이 빠르게 움직일 때, 더 빠르게 행동해야 합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: When Every Second Counts -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">매 초가 중요할 때</h2>
+        <ul class="space-y-4 text-txt-secondary text-lg">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            시장은 격렬하게 움직일 수 있습니다. 도구도 그에 맞게 따라야 합니다.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            traig는 위기 상황을 위한 즉각적인 긴급 컨트롤을 제공합니다.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            메뉴를 탐색할 필요 없이. 직접적이고 즉각적인 조치.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Available Actions -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">사용 가능한 조치</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">가장 중요한 순간을 위한 직접적인 컨트롤.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto fade-in-up">
+        <!-- Card 1: Emergency Liquidation -->
+        <div class="bg-surface border border-red-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">긴급 청산</h3>
+          <p class="text-txt-secondary text-sm">모든 것을 즉시 기준 통화로 전환합니다. 버튼 하나, 확인, 실행.</p>
+        </div>
+        <!-- Card 2: Strategy Pause -->
+        <div class="bg-surface border border-yellow-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">전략 일시정지</h3>
+          <p class="text-txt-secondary text-sm">포지션을 그대로 유지하면서 모든 자동 거래를 즉시 중단합니다.</p>
+        </div>
+        <!-- Card 3: Force Rebalance -->
+        <div class="bg-surface border border-yellow-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">강제 리밸런싱</h3>
+          <p class="text-txt-secondary text-sm">현재 레시피 목표에 맞게 즉각적인 리밸런싱을 트리거합니다.</p>
+        </div>
+        <!-- Card 4: Cancel All Orders -->
+        <div class="bg-surface border border-red-500/20 rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">전체 주문 취소</h3>
+          <p class="text-txt-secondary text-sm">모든 페어의 대기 중인 주문을 즉시 취소합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Safety by Design -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">설계상 안전</h2>
+        <ul class="space-y-4 text-txt-secondary text-lg">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            긴급 조치는 실수로 트리거되는 것을 방지하기 위해 확인을 요구합니다.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            모든 긴급 조치는 로그에 기록되고 감사 가능합니다.
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            비수탁형 보장은 긴급 상황에서도 유지됩니다 — 당신의 거래소, 당신의 실행.
+          </li>
+        </ul>
+        <div class="mt-8 bg-surface border border-border rounded-xl p-6">
+          <p class="text-txt-secondary">traig는 이러한 기능이 거의 필요 없도록 설계되었습니다. 하지만 필요할 때는 클릭 한 번이면 됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 bg-bg-secondary">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">시작할 준비가 되셨나요?</h2>
+      <p class="text-txt-secondary text-lg mb-8">traig 얼리 액세스를 위한 웨이트리스트에 등록하세요.</p>
+      <a href="../ko.html#waitlist" class="inline-flex items-center justify-center px-6 py-3 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        웨이트리스트 등록
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../ko.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">소개</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">비즈니스</a>
+            <a href="../ko.html#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="스크린샷 미리보기" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

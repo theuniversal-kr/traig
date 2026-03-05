@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전략 — traig</title>
+  <meta name="description" content="그리드 봇을 넘어서는 연속적 구간선형 트레이딩 전략. traig로 나만의 레시피를 정의하세요.">
+  <meta property="og:title" content="전략 — traig">
+  <meta property="og:description" content="그리드 봇을 넘어서는 연속적 구간선형 트레이딩 전략. traig로 나만의 레시피를 정의하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/ko/strategy.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="전략 — traig">
+  <meta name="twitter:description" content="그리드 봇을 넘어서는 연속적 구간선형 트레이딩 전략.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../ko.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium hover:text-txt-primary transition-colors flex items-center gap-1">
+            제품
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">전략</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">긴급 조치</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">히스토리</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">소개</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">비즈니스</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            KO
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="../vi/strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../ko.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          웨이트리스트 등록
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          문의
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">전략</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">히스토리</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">소개</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비즈니스</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../ko.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig는 빠르게 진화 중입니다 — 여기 있는 모든 것은 변경될 수 있습니다</p>
+    </div>
+  </div>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20 bg-grid-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../ko.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          홈
+        </a>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          연속적 <span class="text-accent">전략</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-txt-secondary max-w-2xl">
+          가격을 할당으로 부드럽게 매핑하는 구간선형 레시피 — 경직된 그리드 단계 없이.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: What is a Recipe? -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">핵심 개념</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">레시피란 무엇인가?</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>레시피는 traig의 트레이딩 전략 단위입니다. 구간선형 세그먼트를 사용하여 가격을 할당량으로 매핑합니다 — 부드럽고, 연속적이며, 단계 없이.</p>
+            <p>각 레시피는 특정 가격에서 포트폴리오의 얼마만큼을 해당 자산에 보유할지 정의합니다. 가격이 움직이면, traig는 메이커 전용 주문을 사용하여 자동으로 레시피에 맞게 리밸런싱합니다.</p>
+            <p>고정된 간격에서만 반응하는 그리드 봇과 달리, 레시피는 항상 정의되어 있습니다. 모든 가격 레벨에 명확하고 의도적인 지침이 있습니다.</p>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <img src="../images/screenshots/recipe-detail.png" alt="traig 전략 — 할당 곡선과 백테스트가 포함된 레시피 상세" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Segments & Action Types -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">설계</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">세그먼트 &amp; 액션 타입</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">세그먼트는 가격 범위와 할당 기울기를 정의합니다. 각 구간이 얼마나 공격적이거나 보수적인지 직접 제어하세요.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in-up">
+        <!-- Feature card: Zone Control -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">구간 제어</h3>
+          <p class="text-txt-secondary text-sm">확신이 강한 구간에서는 가파른 기울기를, 보수적으로 움직이고 싶은 곳에서는 완만한 기울기를 설정하세요. 각 세그먼트는 독립적으로 조정됩니다.</p>
+        </div>
+        <!-- Feature card: Action Types -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">액션 타입</h3>
+          <p class="text-txt-secondary text-sm">각 세그먼트를 매수 전용, 매도 전용, 또는 양방향으로 설정하세요. 정밀한 방향 제어로 특정 가격 구간에서 원치 않는 동작을 방지합니다.</p>
+        </div>
+        <!-- Feature card: Always Defined -->
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">항상 정의됨</h3>
+          <p class="text-txt-secondary text-sm">모든 가격 레벨이 커버됩니다. 데드존도, "범위 밖" 공백도 없습니다. 시장이 어디로 움직이든 traig는 항상 무엇을 해야 할지 알고 있습니다.</p>
+        </div>
+      </div>
+      <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
+        <p class="text-txt-secondary text-base leading-relaxed">
+          세그먼트는 제어점에서 연결됩니다 — 핵심 가격 레벨에서 할당량을 정의하면, traig가 그 사이를 부드러운 경사로로 연결합니다. 결과는 기계적이지 않고 자연스럽게 느껴지는 전략입니다. 확신이 있는 곳에서는 강도를 높이고, 불확실한 곳에서는 물러나세요. 모든 변곡점은 귀하가 통제합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Automatic Transitions -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">자동화</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">자동 전환</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>레시피는 귀하가 설정한 조건에 따라 자동으로 전환될 수 있습니다. 수동으로 "봇 중지, 새 봇 시작"할 필요 없이 — traig가 매끄럽게 전환을 처리합니다.</p>
+            <p>한 번 설정하고, 적응하게 두세요. 조건이 변하면, 전략도 함께 변합니다.</p>
+          </div>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">예시</p>
+                <p class="text-txt-secondary text-sm">변동성이 급등할 때 레인지 트레이딩 레시피에서 추세 추종 레시피로 자동 전환 — 실행 중단 없이.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">매끄러운 인계</p>
+                <p class="text-txt-secondary text-sm">전환은 부드럽습니다 — traig는 갑작스러운 포지션 변화나 리밸런싱 기회 손실 없이 한 레시피에서 다음 레시피로 블렌딩합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <!-- Transition diagram -->
+          <div class="bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <p class="text-sm text-txt-secondary mb-6 text-center">레시피 전환 흐름</p>
+            <div class="space-y-3">
+              <div class="bg-bg-secondary rounded-lg p-4 border border-accent/20">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent"></div>
+                  <span class="text-sm font-medium">레시피 A — 레인지 트레이딩</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">시장이 횡보할 때 활성. 정해진 범위 내에서 저점 매수, 고점 매도.</p>
+              </div>
+              <div class="flex items-center justify-center py-1">
+                <div class="flex items-center gap-2 text-xs text-txt-secondary">
+                  <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                  <span class="font-mono text-accent/70">if volatility &gt; threshold</span>
+                </div>
+              </div>
+              <div class="bg-bg-secondary rounded-lg p-4 border border-border">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-accent-cta"></div>
+                  <span class="text-sm font-medium">레시피 B — 추세 추종</span>
+                </div>
+                <p class="text-xs text-txt-secondary pl-5">자동으로 활성화. 모멘텀을 역행하지 않고 올라타도록 할당량 조정.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Grid Bot vs traig -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">그리드 봇 vs traig</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">그리드 봇은 좋은 출발점이었습니다. 하지만 시장은 더 나은 것을 받을 자격이 있습니다. traig의 구간선형 접근법은 몇 가지 제어점만 정의하는 단순함으로 연속 함수의 정밀도를 제공합니다.</p>
+      </div>
+
+      <!-- SVG Comparison -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-txt-secondary">그리드 봇</h3>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Y axis -->
+            <line x1="40" y1="20" x2="40" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <!-- X axis -->
+            <line x1="40" y1="175" x2="280" y2="175" stroke="#2A2A36" stroke-width="1"/>
+            <text x="160" y="195" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">시간</text>
+            <text x="12" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 12, 97)">가격</text>
+            <!-- Horizontal grid lines (evenly spaced levels) -->
+            <line x1="40" y1="35" x2="280" y2="35" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="60" x2="280" y2="60" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="85" x2="280" y2="85" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="110" x2="280" y2="110" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="135" x2="280" y2="135" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <line x1="40" y1="160" x2="280" y2="160" stroke="#EF4444" stroke-width="0.8" opacity="0.25"/>
+            <!-- Sell labels (top lines) -->
+            <text x="284" y="38" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">매도</text>
+            <text x="284" y="63" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">매도</text>
+            <text x="284" y="88" fill="#10B981" font-size="7" font-family="Inter" font-weight="500">매도</text>
+            <!-- Buy labels (bottom lines) -->
+            <text x="284" y="113" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">매수</text>
+            <text x="284" y="138" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">매수</text>
+            <text x="284" y="163" fill="#EF4444" font-size="7" font-family="Inter" font-weight="500">매수</text>
+            <!-- Price zigzag line bouncing between grid levels -->
+            <polyline points="48,85 68,60 88,85 108,110 128,85 148,60 168,85 188,135 208,110 228,85 248,110 268,85" fill="none" stroke="#8A8A9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+            <!-- Buy dots (red) when price hits lower levels -->
+            <circle cx="108" cy="110" r="3.5" fill="#EF4444"/>
+            <circle cx="188" cy="135" r="3.5" fill="#EF4444"/>
+            <circle cx="248" cy="110" r="3.5" fill="#EF4444"/>
+            <!-- Sell dots (green) when price hits upper levels -->
+            <circle cx="68" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="148" cy="60" r="3.5" fill="#10B981"/>
+            <circle cx="228" cy="85" r="3.5" fill="#10B981"/>
+            <text x="160" y="14" text-anchor="middle" fill="#EF4444" font-size="10" font-family="Inter" opacity="0.7">고정 그리드 — 동일한 간격으로 저점 매수, 고점 매도</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">고정 간격, 동일 주문 크기, 범위 밖에서는 동작 없음</p>
+        </div>
+        <div class="bg-surface border border-accent/20 rounded-xl p-6 text-center">
+          <h3 class="text-lg font-semibold mb-4 text-accent">traig</h3>
+          <svg viewBox="0 0 300 200" class="w-full max-w-sm mx-auto mb-4">
+            <!-- Grid lines -->
+            <line x1="60" y1="30" x2="60" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="165" x2="275" y2="165" stroke="#2A2A36" stroke-width="1"/>
+            <line x1="60" y1="30" x2="275" y2="30" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="75" x2="275" y2="75" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="60" y1="120" x2="275" y2="120" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="114" y1="30" x2="114" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="168" y1="30" x2="168" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="221" y1="30" x2="221" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <line x1="275" y1="30" x2="275" y2="165" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+            <!-- Axis labels -->
+            <text x="168" y="185" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter">할당 %</text>
+            <text x="15" y="97" text-anchor="middle" fill="#8A8A9A" font-size="10" font-family="Inter" transform="rotate(-90, 15, 97)">가격</text>
+            <!-- X tick labels -->
+            <text x="60" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">0%</text>
+            <text x="114" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">25%</text>
+            <text x="168" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">50%</text>
+            <text x="221" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">75%</text>
+            <text x="275" y="178" text-anchor="middle" fill="#8A8A9A" font-size="8" font-family="Inter">100%</text>
+            <defs>
+              <linearGradient id="blueGradStrategy" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Smooth continuous line: high price at 0% allocation, slopes down to low price at 100% -->
+            <polyline points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="60,30 90,38 114,60 140,80 168,105 200,130 240,148 275,160 275,165 60,165" fill="url(#blueGradStrategy)" opacity="0.15"/>
+            <!-- Control points -->
+            <circle cx="60" cy="30" r="3" fill="#3B82F6"/>
+            <circle cx="114" cy="60" r="3" fill="#3B82F6"/>
+            <circle cx="168" cy="105" r="3" fill="#3B82F6"/>
+            <circle cx="221" cy="140" r="3" fill="#3B82F6"/>
+            <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
+            <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">연속적 — 구간별 강도 조정 가능</text>
+          </svg>
+          <p class="text-txt-secondary text-sm">부드러운 할당, 항상 정의됨, 구간별 강도 조정</p>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto fade-in-up">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium"></th>
+              <th class="text-left py-3 px-4 text-txt-secondary font-medium">그리드 봇</th>
+              <th class="text-left py-3 px-4 text-accent font-medium">traig</th>
+            </tr>
+          </thead>
+          <tbody class="text-txt-secondary">
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">가격-행동</td>
+              <td class="py-3 px-4">불연속 (계단형)</td>
+              <td class="py-3 px-4 text-txt-primary">연속 (부드러운 경사)</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">범위 이탈 시</td>
+              <td class="py-3 px-4">동작 없음</td>
+              <td class="py-3 px-4 text-txt-primary">항상 정의된 행동</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">구간 강도</td>
+              <td class="py-3 px-4">전 구간 동일</td>
+              <td class="py-3 px-4 text-txt-primary">구간별 공격적/보수적 설정</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">전략 전환</td>
+              <td class="py-3 px-4">수동 중지 &rarr; 재시작</td>
+              <td class="py-3 px-4 text-txt-primary">자동 전환</td>
+            </tr>
+            <tr class="border-b border-border/50 comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">관리</td>
+              <td class="py-3 px-4">파라미터 입력</td>
+              <td class="py-3 px-4 text-txt-primary">AI 대화</td>
+            </tr>
+            <tr class="comparison-highlight">
+              <td class="py-3 px-4 text-txt-primary font-medium">실행</td>
+              <td class="py-3 px-4">그리드 레벨에서 테이커 주문</td>
+              <td class="py-3 px-4 text-txt-primary">메이커 전용 — 수수료 최적화</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 waitlist-section">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">직접 체험해 보시겠어요?</h2>
+      <p class="text-txt-secondary text-lg mb-10">traig로 연속적인 전략을 처음으로 만들어 보는 분 중 한 명이 되세요.</p>
+      <a href="../ko.html#waitlist" class="inline-flex items-center justify-center px-8 py-4 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        웨이트리스트 등록
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../ko.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">소개</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">비즈니스</a>
+            <a href="../ko.html#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="스크린샷 미리보기" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

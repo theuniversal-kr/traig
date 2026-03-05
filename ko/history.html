@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>히스토리 — traig</title>
+  <meta name="description" content="스마트 조정을 포함한 완전한 거래 히스토리. traig로 모든 거래, 입금, 출금을 추적하세요.">
+  <meta property="og:title" content="히스토리 — traig">
+  <meta property="og:description" content="스마트 조정을 포함한 완전한 거래 히스토리. traig로 모든 거래, 입금, 출금을 추적하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/ko/history.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="히스토리 — traig">
+  <meta name="twitter:description" content="스마트 조정을 포함한 완전한 거래 히스토리. traig로 모든 거래, 입금, 출금을 추적하세요.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../ko.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            제품
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">전략</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">긴급 조치</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">히스토리</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">소개</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">비즈니스</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            KO
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="../vi/history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../ko.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          웨이트리스트 등록
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          문의
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">전략</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">히스토리</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">소개</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비즈니스</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../ko.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig는 빠르게 진화 중입니다 — 여기 있는 모든 것은 변경될 수 있습니다</p>
+    </div>
+  </div>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../ko.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary transition-colors text-sm mb-8">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          홈
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">거래 히스토리</h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">스마트 조정으로 모든 거래의 완전한 기록.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Every Trade, Recorded -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">모든 거래, 기록됨</h2>
+          <ul class="space-y-4 text-txt-secondary text-lg">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              traig가 실행한 모든 거래의 전체 히스토리.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              타임스탬프, 페어, 방향, 가격, 수량, 수수료 — 모든 것.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              날짜, 페어, 레시피별 필터링.
+            </li>
+          </ul>
+        </div>
+        <div class="fade-in-up">
+          <img src="../images/screenshots/history.png" alt="traig 히스토리 — 차트가 포함된 거래 히스토리" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Deposit & Withdrawal Correction -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up order-2 lg:order-1">
+          <div class="bg-surface border border-accent/20 rounded-xl p-8">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between py-3 border-b border-border">
+                <span class="text-txt-secondary text-sm">거래 PnL</span>
+                <span class="text-accent-cta font-mono font-medium">+$1,240</span>
+              </div>
+              <div class="flex items-center justify-between py-3 border-b border-border">
+                <span class="text-txt-secondary text-sm">입금 감지됨</span>
+                <span class="text-txt-secondary font-mono text-sm">+$5,000 조정됨</span>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-txt-primary text-sm font-medium">실제 거래 PnL</span>
+                <span class="text-accent-cta font-mono font-semibold">+$1,240</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up order-1 lg:order-2">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">입출금 보정</h2>
+          <ul class="space-y-4 text-txt-secondary text-lg">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              입금이나 출금을 할 때 거래 없이 포트폴리오 잔액이 변합니다.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              traig가 이를 감지하고 PnL 계산을 그에 맞게 조정합니다.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              더 이상 수동 보정이나 잘못된 수익 숫자가 없습니다.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              PnL은 자금 이동이 아닌 실제 거래 성과를 반영합니다.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: More Convenience Features -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 fade-in-up">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">더 많은 편의 기능</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">트레이딩 활동을 이해하는 데 필요한 모든 것.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto fade-in-up">
+        <!-- Card 1 -->
+        <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">내보내기</h3>
+          <p class="text-txt-secondary text-sm">세금 신고나 분석을 위해 거래 히스토리를 CSV로 다운로드하세요.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">레시피 귀속</h3>
+          <p class="text-txt-secondary text-sm">각 거래를 생성한 레시피를 확인하세요.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">수수료 추적</h3>
+          <p class="text-txt-secondary text-sm">납부한 거래 수수료의 상세 내역.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+          <div class="w-8 h-8 mb-3">
+            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1">성과 지표</h3>
+          <p class="text-txt-secondary text-sm">승률, 평균 거래 규모, 총 거래량 등.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 bg-bg-secondary">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">시작할 준비가 되셨나요?</h2>
+      <p class="text-txt-secondary text-lg mb-8">traig 얼리 액세스를 위한 웨이트리스트에 등록하세요.</p>
+      <a href="../ko.html#waitlist" class="inline-flex items-center justify-center px-6 py-3 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        웨이트리스트 등록
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../ko.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">소개</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">비즈니스</a>
+            <a href="../ko.html#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="스크린샷 미리보기" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소개 — traig</title>
+  <meta name="description" content="traig 소개: 대한민국에서 만들어진 체계적 암호화폐 트레이딩, 전 세계를 위해.">
+  <meta property="og:title" content="소개 — traig">
+  <meta property="og:description" content="traig 소개: 대한민국에서 만들어진 체계적 암호화폐 트레이딩, 전 세계를 위해.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/ko/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="소개 — traig">
+  <meta name="twitter:description" content="traig 소개: 대한민국에서 만들어진 체계적 암호화폐 트레이딩, 전 세계를 위해.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../ko.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            제품
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">전략</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">긴급 조치</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">히스토리</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
+        <a href="about.html" class="text-txt-primary font-medium">소개</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">비즈니스</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            KO
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../about.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="about.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="../vi/about.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../ko.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          웨이트리스트 등록
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          문의
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">전략</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">히스토리</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">소개</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비즈니스</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../ko.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig는 빠르게 진화 중입니다 — 여기 있는 모든 것은 변경될 수 있습니다</p>
+    </div>
+  </div>
+
+  <!--Page Hero -->
+  <section class="subpage-hero pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up">
+        <a href="../ko.html" class="inline-flex items-center gap-1 text-sm text-txt-secondary hover:text-txt-primary transition-colors mb-8">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          홈
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">traig 소개</h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">확신에서 시작된 체계적 암호화폐 트레이딩.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 0: Founder Story -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl fade-in-up">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">혼자서, 불만에서 시작하다</h2>
+        <div class="space-y-4 text-txt-secondary text-lg leading-relaxed">
+          <p>팀도 없고 투자도 없이 — 그리드 봇에 대한 깊은 불만과 9개월 이상의 실거래만으로 더 나은 방법이 존재한다는 것을 증명했습니다.</p>
+          <p>그리드 봇은 암호화폐 시장 어디에나 있지만, 근본적으로 불연속적입니다. 고정된 가격 레벨, 동일한 주문 크기, 아무것도 일어나지 않는 데드존. 가격이 범위를 벗어나는 순간 모든 것이 멈춥니다.</p>
+          <p>traig의 핵심 통찰은 단순합니다: 가격이 연속적으로 움직이는데, 왜 할당량은 단계적으로 바뀌어야 할까요?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: What is traig -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl fade-in-up">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">traig란 무엇인가</h2>
+        <div class="text-txt-secondary text-lg leading-relaxed mb-8">
+          <p>traig는 하나의 단순한 확신을 중심으로 구축된 자동화 암호화폐 트레이딩 플랫폼입니다: 체계적 접근이 투기적 접근을 이긴다.</p>
+        </div>
+        <ul class="space-y-3 text-txt-secondary text-base">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>연속적 구간선형 전략 — 그리드 봇이 아닙니다</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>자연스러운 대화를 통한 AI 기반 전략 생성 및 수정</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>100% 비수탁형 — 내 거래소, 내 키, 내 자산</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>완전한 투명성 — 모든 AI 프롬프트 공개 및 감사 가능</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>개인 트레이더와 기관 모두를 위해 설계</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Built in Korea -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl fade-in-up">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">한국에서 만들어져, 세계를 향해</h2>
+        <div class="space-y-4 text-txt-secondary text-lg leading-relaxed">
+          <p>traig는 대한민국에서 만들어졌습니다 — 아마도 지구상에서 암호화폐 규제가 가장 엄격한 나라일 것입니다. 여기서 작동한다면, 어디서든 작동합니다.</p>
+          <p>한국의 암호화폐 트레이딩 서비스 관련 규정으로 인해, traig는 아직 한국 시장에서 서비스를 제공하지 않습니다. 현재는 전 세계 트레이더들을 대상으로 서비스하며 — 언젠가 규제가 허용되어 우리의 홈 시장에서도 서비스할 수 있는 날이 오기를 바랍니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Global Vision -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl fade-in-up">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">글로벌 비전</h2>
+        <div class="text-txt-secondary text-lg leading-relaxed mb-8">
+          <p>우리의 목표는 단순합니다: 규제가 허용하는 범위 안에서, 모든 곳의 모든 사람이 체계적 트레이딩에 접근할 수 있게 하는 것입니다.</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+            <p class="text-xs text-txt-secondary uppercase tracking-wider mb-2">현황</p>
+            <p class="text-txt-primary font-medium">웨이트리스트 단계</p>
+            <p class="text-txt-secondary text-sm mt-1">거래소 지원 확대 중</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+            <p class="text-xs text-txt-secondary uppercase tracking-wider mb-2">지원 거래소</p>
+            <p class="text-txt-primary font-medium">Binance, Bybit</p>
+            <p class="text-txt-secondary text-sm mt-1">OKX, Bitget 등 추가 예정</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5 card-hover">
+            <p class="text-xs text-txt-secondary uppercase tracking-wider mb-2">지원 언어</p>
+            <p class="text-txt-primary font-medium">EN · KO · VI</p>
+            <p class="text-txt-secondary text-sm mt-1">영어, 한국어, 베트남어</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-bg-primary text-center section-glow">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 fade-in-up">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">시작할 준비가 되셨나요?</h2>
+      <p class="text-txt-secondary text-lg mb-8">traig 얼리 액세스를 위한 웨이트리스트에 등록하세요.</p>
+      <a href="../ko.html#waitlist" class="inline-flex items-center justify-center px-6 py-3 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        웨이트리스트 등록
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../ko.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">소개</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">비즈니스</a>
+            <a href="../ko.html#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

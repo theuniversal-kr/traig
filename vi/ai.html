@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI — traig</title>
+  <meta name="description" content="Quản lý giao dịch crypto bằng AI. Tạo, chỉnh sửa và quản lý chiến lược qua hội thoại tự nhiên.">
+  <meta property="og:title" content="AI — traig">
+  <meta property="og:description" content="Quản lý giao dịch crypto bằng AI. Tạo, chỉnh sửa và quản lý chiến lược qua hội thoại tự nhiên.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://traig.kr/vi/ai.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI — traig">
+  <meta name="twitter:description" content="Quản lý giao dịch crypto bằng AI. Tạo, chỉnh sửa và quản lý chiến lược qua hội thoại tự nhiên.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#0A0A0F', secondary: '#14141B' },
+            surface: '#1C1C26',
+            txt: { primary: '#F0F0F5', secondary: '#8A8A9A' },
+            accent: { DEFAULT: '#3B82F6', hover: '#60A5FA', cta: '#10B981' },
+            border: '#2A2A36',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    .ai-hero-glow {
+      background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 65%);
+    }
+    .chat-bubble-user {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+    .chat-bubble-ai {
+      background: #1C1C26;
+      border: 1px solid #2A2A36;
+    }
+    .prompt-block {
+      background: #14141B;
+      border: 1px solid #2A2A36;
+      border-left: 3px solid #3B82F6;
+    }
+  </style>
+</head>
+<body class="bg-bg-primary text-txt-primary font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../vi.html" class="text-xl font-bold tracking-tight">traig</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="relative group">
+          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
+            Sản phẩm
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
+              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Chiến lược</a>
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Bảng điều khiển</a>
+              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Backtesting</a>
+              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Hành động khẩn cấp</a>
+              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">Lịch sử</a>
+            </div>
+          </div>
+        </div>
+        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Thành tích</a>
+        <a href="ai.html" class="text-txt-primary font-medium transition-colors">AI</a>
+        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Triết lý</a>
+        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Giới thiệu</a>
+        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative group">
+          <button class="text-txt-primary font-medium text-sm transition-colors flex items-center gap-1">
+            VI
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-surface border border-border rounded-lg py-2 min-w-[100px] shadow-xl">
+              <a href="../ai.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">EN</a>
+              <a href="../ko/ai.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">KO</a>
+              <a href="ai.html" class="block px-4 py-2 text-sm text-txt-primary font-medium hover:bg-bg-secondary transition-colors">VI</a>
+            </div>
+          </div>
+        </div>
+        <a href="../vi.html#waitlist" class="hidden sm:inline-flex items-center px-4 py-2 bg-accent-cta text-white text-sm font-medium rounded-lg btn-glow">
+          Tham gia Waitlist
+        </a>
+        <a href="mailto:contact@traig.kr" class="hidden sm:inline-flex items-center px-4 py-2 border border-accent/30 text-accent text-sm font-medium rounded-lg hover:text-accent-hover hover:border-accent/50 transition-colors">
+          Liên hệ
+        </a>
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-txt-secondary hover:text-txt-primary">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
+      <div class="px-4 py-4 space-y-1">
+        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">Sản phẩm</p>
+        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Chiến lược</a>
+        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Bảng điều khiển</a>
+        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Backtesting</a>
+        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Hành động khẩn cấp</a>
+        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Lịch sử</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Thành tích</a>
+        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-primary font-medium rounded-lg hover:bg-surface transition-colors">AI</a>
+        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Triết lý</a>
+        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Giới thiệu</a>
+        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">Doanh nghiệp</a>
+        <div class="border-t border-border my-2"></div>
+        <a href="../vi.html#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">Tham gia Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject to change banner -->
+  <div class="fixed top-16 w-full z-40 stc-banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1.5 text-center">
+      <p class="text-xs font-medium tracking-wide" style="color: #EA8A1E;">traig đang phát triển nhanh chóng — mọi thứ ở đây có thể thay đổi</p>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="ai-hero-glow bg-grid-pattern pt-40 pb-16 sm:pt-48 sm:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="fade-in-up max-w-3xl">
+        <a href="../vi.html" class="inline-flex items-center gap-2 text-txt-secondary hover:text-txt-primary text-sm mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Trang chủ
+        </a>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-accent/10 border border-accent/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <span class="text-accent text-sm font-medium tracking-wider uppercase">Hỗ trợ bởi AI</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Giao dịch<br><span class="text-accent">bằng AI</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-txt-secondary max-w-2xl">
+          Tạo, chỉnh sửa và quản lý chiến lược của bạn qua hội thoại. Không cần biểu mẫu tham số, không cần bảng tính — chỉ cần ngôn ngữ tự nhiên.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Talk to Your Strategy -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Ngôn ngữ tự nhiên</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Nói chuyện với chiến lược của bạn</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Không còn biểu mẫu tham số phức tạp hay giao diện kiểu bảng tính. Chỉ cần nói với AI điều bạn muốn.</p>
+            <p>AI chuyển đổi ý định của bạn thành các điều chỉnh công thức chính xác — điều chỉnh độ dốc, vùng và giai đoạn chuyển tiếp trong khi vẫn bảo toàn hồ sơ rủi ro tổng thể của bạn.</p>
+          </div>
+          <div class="mt-8 space-y-3">
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Mua mạnh hơn khi dưới $60K"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Thêm vùng bán trên $80K"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Giảm tiếp xúc khi biến động cao"</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-txt-secondary">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></div>
+              <span>"Chuyển sang theo xu hướng khi BTC vượt $90K"</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock chat UI -->
+        <div class="fade-in-up">
+          <div class="bg-surface border border-border rounded-xl overflow-hidden">
+            <!-- Chat header -->
+            <div class="border-b border-border px-5 py-4 flex items-center gap-3">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium">traig AI</p>
+                <p class="text-xs text-txt-secondary">BTC/USDT — Công thức: Range Accumulator</p>
+              </div>
+              <div class="ml-auto w-2 h-2 rounded-full bg-accent-cta"></div>
+            </div>
+            <!-- Chat messages -->
+            <div class="px-5 py-6 space-y-5">
+              <!-- User message -->
+              <div class="flex justify-end">
+                <div class="chat-bubble-user rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%]">
+                  <p class="text-sm">Tôi muốn mua mạnh hơn khi BTC giảm dưới 55K</p>
+                </div>
+              </div>
+              <!-- AI response -->
+              <div class="flex gap-3">
+                <div class="w-7 h-7 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                </div>
+                <div class="chat-bubble-ai rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                  <p class="text-sm mb-3">Tôi đã cập nhật công thức của bạn. Độ dốc phân bổ dưới $55,000 hiện dốc hơn 2×, tăng cường độ mua trong vùng đó.</p>
+                  <div class="bg-bg-primary rounded-lg p-3 border border-border/50">
+                    <p class="text-xs text-txt-secondary mb-2 font-medium">Xem trước đường cong đã cập nhật</p>
+                    <svg viewBox="0 0 240 120" class="w-full">
+                      <!-- Axes -->
+                      <line x1="30" y1="10" x2="30" y2="95" stroke="#2A2A36" stroke-width="1"/>
+                      <line x1="30" y1="95" x2="220" y2="95" stroke="#2A2A36" stroke-width="1"/>
+                      <!-- Grid lines -->
+                      <line x1="30" y1="30" x2="220" y2="30" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.2"/>
+                      <line x1="30" y1="55" x2="220" y2="55" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.2"/>
+                      <line x1="30" y1="75" x2="220" y2="75" stroke="#2A2A36" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.2"/>
+                      <!-- Axis labels -->
+                      <text x="125" y="112" text-anchor="middle" fill="#8A8A9A" font-size="7" font-family="Inter">Allocation %</text>
+                      <text x="10" y="55" text-anchor="middle" fill="#8A8A9A" font-size="7" font-family="Inter" transform="rotate(-90, 10, 55)">Price</text>
+                      <!-- X ticks -->
+                      <text x="30" y="105" text-anchor="middle" fill="#8A8A9A" font-size="6" font-family="Inter">0%</text>
+                      <text x="220" y="105" text-anchor="middle" fill="#8A8A9A" font-size="6" font-family="Inter">100%</text>
+                      <!-- Old curve (dimmed) -->
+                      <polyline points="30,15 80,40 130,55 180,72 220,88" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.3"/>
+                      <!-- New curve -->
+                      <polyline points="30,15 60,38 80,40 130,55 180,72 220,88" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <!-- Zone highlight -->
+                      <rect x="150" y="60" width="70" height="35" fill="#3B82F6" opacity="0.04"/>
+                      <line x1="150" y1="10" x2="150" y2="95" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+                      <text x="90" y="8" text-anchor="middle" fill="#8A8A9A" font-size="6" font-family="Inter" opacity="0.6">above $55K</text>
+                      <text x="185" y="8" text-anchor="middle" fill="#3B82F6" font-size="6" font-family="Inter" opacity="0.6">&lt; $55K zone</text>
+                    </svg>
+                  </div>
+                  <p class="text-xs text-txt-secondary mt-3">Sẵn sàng áp dụng? Phân bổ hiện tại của bạn không thay đổi cho đến khi bạn xác nhận.</p>
+                  <div class="flex gap-2 mt-3">
+                    <button class="text-xs px-3 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-lg">Áp dụng thay đổi</button>
+                    <button class="text-xs px-3 py-1.5 text-txt-secondary border border-border rounded-lg">Điều chỉnh thêm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Input area -->
+            <div class="border-t border-border px-5 py-4">
+              <div class="flex items-center gap-3 bg-bg-secondary rounded-xl px-4 py-3 border border-border">
+                <input type="text" placeholder="Mô tả thay đổi chiến lược..." class="flex-1 bg-transparent text-sm text-txt-secondary placeholder-txt-secondary/40 outline-none" disabled>
+                <svg class="w-4 h-4 text-txt-secondary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Recipe Creation -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up order-2 lg:order-1">
+          <img src="../images/screenshots/ai-advisor.png" alt="traig AI Advisor — Giao diện chat" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+        <div class="fade-in-up order-1 lg:order-2">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Bắt đầu</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Tạo công thức</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Bắt đầu từ đầu hoặc phát triển một công thức hiện có. Mô tả chiến lược của bạn bằng ngôn ngữ đơn giản — AI gợi ý cấu hình phân đoạn dựa trên mục tiêu và mức chịu đựng rủi ro của bạn.</p>
+            <p>Không biết bắt đầu từ đâu? Hãy nói với AI cách tiếp cận chung của bạn: tích lũy theo vùng, theo xu hướng, DCA với các vùng niềm tin. AI xây dựng công thức, bạn tinh chỉnh nó.</p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="bg-surface border border-border rounded-xl p-4">
+              <div class="text-accent text-2xl font-bold mb-1">Mới</div>
+              <div class="text-sm text-txt-secondary">Bắt đầu từ một cuộc trò chuyện</div>
+            </div>
+            <div class="bg-surface border border-border rounded-xl p-4">
+              <div class="text-accent text-2xl font-bold mb-1">Fork</div>
+              <div class="text-sm text-txt-secondary">Chỉnh sửa một công thức hiện có</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Strategy Modification -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+          <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Lặp lại</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Chỉnh sửa chiến lược</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Điều chỉnh các vùng, độ dốc và giai đoạn chuyển tiếp mà không cần chạm vào bất kỳ tham số nào trực tiếp. Mô tả những gì cảm thấy chưa đúng, AI sẽ tìm ra cần thay đổi gì.</p>
+            <p>AI hiển thị so sánh trước và sau để bạn có thể thấy chính xác những gì sẽ thay đổi trước khi áp dụng. Xem trước theo thời gian thực về cách các thay đổi ảnh hưởng đến đường cong phân bổ của bạn.</p>
+          </div>
+          <div class="mt-8 space-y-3">
+            <div class="flex items-start gap-3 bg-surface border border-border rounded-xl p-4">
+              <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              <div>
+                <p class="text-sm font-medium mb-1">Xem trước trước &amp; sau</p>
+                <p class="text-txt-secondary text-sm">Xem chính xác đường cong thay đổi như thế nào trước khi xác nhận. Chấp nhận, từ chối hoặc yêu cầu điều chỉnh thêm.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-surface border border-border rounded-xl p-4">
+              <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+              <div>
+                <p class="text-sm font-medium mb-1">Tinh chỉnh lặp đi lặp lại</p>
+                <p class="text-txt-secondary text-sm">Tiếp tục tinh chỉnh cho đến khi chiến lược cảm thấy đúng. Mỗi lượt trò chuyện xây dựng dựa trên lượt trước.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <img src="../images/screenshots/ai-advisor.png" alt="traig AI Advisor — Chỉnh sửa chiến lược" class="rounded-xl border border-border shadow-2xl w-full" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Market Monitoring -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Giám sát</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Theo dõi thị trường</h2>
+        <p class="text-txt-secondary text-lg max-w-2xl mx-auto">AI theo dõi thị trường thay bạn. Nhận thông báo khi điều kiện cho thấy cần điều chỉnh chiến lược.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Cảnh báo điều kiện</h3>
+          <p class="text-txt-secondary text-sm">Cảnh báo dựa trên AI khi điều kiện thị trường thay đổi theo cách có thể cần xem xét công thức đang hoạt động của bạn.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Luôn theo dõi</h3>
+          <p class="text-txt-secondary text-sm">Giám sát liên tục, 24/7. Thị trường không ngủ, và AI cũng vậy.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Vẫn đang phát triển</h3>
+          <p class="text-txt-secondary text-sm">Các khả năng theo dõi thị trường đang được định nghĩa tích cực. Hãy chờ đợi thêm — những người dùng sớm sẽ giúp định hình tính năng này.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Transparent AI -->
+  <section class="py-20 sm:py-28 section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="fade-in-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 bg-accent-cta/10 border border-accent-cta/20 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4 text-accent-cta" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <span class="text-accent-cta text-sm font-medium tracking-wider uppercase">Điểm khác biệt chính</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">AI hoàn toàn mở</h2>
+          <div class="space-y-4 text-txt-secondary text-lg">
+            <p>Lớp AI của traig 100% không giữ hộ — không chỉ tiền của bạn, mà cả bản thân AI cũng vậy.</p>
+          </div>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">System prompt mở</p>
+                <p class="text-txt-secondary text-sm">Mọi system prompt đều hiển thị, có thể chỉnh sửa và fork được. Xây dựng agent giao dịch của riêng bạn với hướng dẫn của riêng bạn.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Thông số công cụ mở (MCP)</p>
+                <p class="text-txt-secondary text-sm">Tất cả các công cụ nội bộ AI sử dụng — đặt lệnh, chỉnh sửa công thức, dữ liệu thị trường — được công bố dưới dạng thông số MCP với ví dụ sử dụng.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 bg-surface border border-border rounded-xl p-4">
+              <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium mb-1">Mang model của riêng bạn</p>
+                <p class="text-txt-secondary text-sm">Chọn model AI bạn muốn. Sử dụng API key của riêng bạn. traig không khóa bạn vào bất kỳ nhà cung cấp nào.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-up">
+          <!-- Code blocks showing openness -->
+          <div class="space-y-4">
+            <!-- System prompt block -->
+            <div class="rounded-xl overflow-hidden border border-border">
+              <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                </div>
+                <span class="text-xs text-txt-secondary font-mono">system-prompt.md — có thể chỉnh sửa</span>
+              </div>
+              <div class="prompt-block p-5">
+                <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap"><span class="text-accent-cta">System:</span> You are a trading strategy assistant.
+
+The user's recipe has 3 segments:
+  $40K–$55K, slope 0.8 (buy-only)
+  $55K–$75K, slope 0.4 (both)
+  $75K–$100K, slope 0.2 (sell-only)
+
+Max allocation: 85%
+Return a structured JSON diff.
+
+<span class="text-accent/60">// You can edit this entire prompt.</span>
+<span class="text-accent/60">// Fork it. Build your own agent.</span></pre>
+              </div>
+            </div>
+            <!-- MCP tools block -->
+            <div class="rounded-xl overflow-hidden border border-border">
+              <div class="bg-surface border-b border-border px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                  <div class="w-3 h-3 rounded-full bg-border"></div>
+                </div>
+                <span class="text-xs text-txt-secondary font-mono">tools/mcp-spec.json — công khai</span>
+              </div>
+              <div class="prompt-block p-5">
+                <pre class="font-mono text-xs text-txt-secondary leading-relaxed whitespace-pre-wrap">{
+  <span class="text-accent">"tools"</span>: [
+    <span class="text-accent">"modify_recipe"</span>,
+    <span class="text-accent">"place_order"</span>,
+    <span class="text-accent">"get_market_data"</span>,
+    <span class="text-accent">"get_allocation"</span>
+  ],
+  <span class="text-accent">"model"</span>: <span class="text-accent-cta">"user-selected"</span>,
+  <span class="text-accent">"api_key"</span>: <span class="text-accent-cta">"user-provided"</span>
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Why AI Matters -->
+  <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">Lý do cho AI</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Tại sao AI quan trọng trong giao dịch</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-up">
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Thị trường 24/7</h3>
+          <p class="text-txt-secondary text-sm">Crypto không bao giờ đóng cửa. Con người cần ngủ. AI thu hẹp khoảng cách — chiến lược của bạn thích nghi ngay cả khi bạn ngoại tuyến.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Giao diện tự nhiên</h3>
+          <p class="text-txt-secondary text-sm">Ngôn ngữ tự nhiên là giao diện trực quan nhất từng được tạo ra. Quản lý chiến lược nên cảm giác như nói chuyện với một đồng nghiệp am hiểu.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Dân chủ hóa</h3>
+          <p class="text-txt-secondary text-sm">Giao dịch hệ thống không nên đòi hỏi bằng Tiến sĩ tài chính định lượng. AI giúp các chiến lược tinh vi trở nên dễ tiếp cận với mọi người.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Có thể kiểm chứng</h3>
+          <p class="text-txt-secondary text-sm">Mọi hành động AI đều có thể kiểm tra. Bạn không tin vào một hộp đen — bạn đang làm việc với một hệ thống minh bạch mà bạn có thể kiểm tra đầy đủ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 waitlist-section">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Trải nghiệm giao dịch bằng AI</h2>
+      <p class="text-txt-secondary text-lg mb-10">Tham gia waitlist và là một trong những người đầu tiên quản lý chiến lược qua hội thoại.</p>
+      <a href="../vi.html#waitlist" class="inline-flex items-center justify-center px-8 py-4 bg-accent-cta text-white font-semibold rounded-lg text-lg btn-glow">
+        Tham gia Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <a href="../vi.html" class="text-lg font-bold">traig</a>
+          <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
+            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Triết lý</a>
+            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
+            <a href="about.html" class="hover:text-txt-primary transition-colors">Giới thiệu</a>
+            <a href="business.html" class="hover:text-txt-primary transition-colors">Doanh nghiệp</a>
+            <a href="../vi.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Screenshot Lightbox Modal -->
+  <div class="screenshot-modal" id="screenshotModal">
+    <img src="" alt="Xem trước ảnh chụp màn hình" id="modalImg">
+  </div>
+  <script>
+    (function() {
+      var modal = document.getElementById("screenshotModal");
+      var modalImg = document.getElementById("modalImg");
+      document.querySelectorAll('img[src*="screenshots"]').forEach(function(img) {
+        img.addEventListener("click", function() {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add("active");
+        });
+      });
+      modal.addEventListener("click", function() { modal.classList.remove("active"); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape") modal.classList.remove("active"); });
+    })();
+  </script>
+</body>
+</html>
