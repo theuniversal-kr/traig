@@ -45,26 +45,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="ko.html" class="text-xl font-bold tracking-tight">traig</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <div class="relative group">
-          <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
-            제품
-            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div class="bg-surface border border-border rounded-lg py-2 min-w-[200px] shadow-xl">
-              <a href="strategy.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">전략</a>
-              <a href="dashboard.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">대시보드</a>
-              <a href="backtesting.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">백테스팅</a>
-              <a href="emergency.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">긴급 조치</a>
-              <a href="history.html" class="block px-4 py-2 text-sm text-txt-secondary hover:text-txt-primary hover:bg-bg-secondary transition-colors">거래 내역</a>
-            </div>
-          </div>
-        </div>
-        <a href="track-record.html" class="text-txt-secondary hover:text-txt-primary transition-colors">트랙 레코드</a>
-        <a href="ai.html" class="text-txt-secondary hover:text-txt-primary transition-colors">AI</a>
-        <a href="philosophy.html" class="text-txt-secondary hover:text-txt-primary transition-colors">철학</a>
-        <a href="about.html" class="text-txt-secondary hover:text-txt-primary transition-colors">소개</a>
-        <a href="business.html" class="text-txt-secondary hover:text-txt-primary transition-colors">사업</a>
+        <a href="#features" class="text-txt-secondary hover:text-txt-primary transition-colors">기능</a>
+        <a href="#comparison" class="text-txt-secondary hover:text-txt-primary transition-colors">비교</a>
+        <a href="#audience" class="text-txt-secondary hover:text-txt-primary transition-colors">대상</a>
+        <a href="#waitlist" class="text-txt-secondary hover:text-txt-primary transition-colors">웨이트리스트</a>
       </nav>
       <div class="flex items-center gap-4">
         <div class="relative group">
@@ -93,18 +77,9 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-primary/95 nav-blur">
       <div class="px-4 py-4 space-y-1">
-        <p class="text-txt-secondary/50 text-xs uppercase tracking-wider px-2 pb-2">제품</p>
-        <a href="strategy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">전략</a>
-        <a href="dashboard.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대시보드</a>
-        <a href="backtesting.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">백테스팅</a>
-        <a href="emergency.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">긴급 조치</a>
-        <a href="history.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">거래 내역</a>
-        <div class="border-t border-border my-2"></div>
-        <a href="track-record.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">트랙 레코드</a>
-        <a href="ai.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">AI</a>
-        <a href="philosophy.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">철학</a>
-        <a href="about.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">소개</a>
-        <a href="business.html" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">사업</a>
+        <a href="#features" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">기능</a>
+        <a href="#comparison" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">비교</a>
+        <a href="#audience" class="block px-2 py-2 text-sm text-txt-secondary hover:text-txt-primary rounded-lg hover:bg-surface transition-colors">대상</a>
         <div class="border-t border-border my-2"></div>
         <a href="#waitlist" class="block px-2 py-2 text-sm text-accent-cta font-medium rounded-lg">웨이트리스트 등록</a>
       </div>
@@ -210,59 +185,59 @@
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Strategy -->
-        <a href="strategy.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">연속적 전략</h3>
           <p class="text-txt-secondary text-sm mb-4">피스와이즈 리니어 레시피로 가격에 따른 배분을 매끄럽게 매핑 — 단순한 그리드 계단이 아닙니다.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
         <!-- Dashboard -->
-        <a href="dashboard.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">대시보드</h3>
           <p class="text-txt-secondary text-sm mb-4">전략을 정밀하게 모니터링하고 관리하세요. 작은 디테일, 큰 편의성.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
         <!-- AI (highlighted) -->
-        <a href="ai.html" class="bg-surface border border-accent/30 rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-accent/30 rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">AI 기반</h3>
           <p class="text-txt-secondary text-sm mb-4">자연어 대화로 전략을 생성, 수정, 관리하세요.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
         <!-- Backtesting -->
-        <a href="backtesting.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">백테스팅</h3>
           <p class="text-txt-secondary text-sm mb-4">배포 전에 과거 분봉 데이터로 전략을 검증하세요.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
         <!-- Emergency -->
-        <a href="emergency.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">긴급 조치</h3>
           <p class="text-txt-secondary text-sm mb-4">시장이 빠르게 움직일 때, 더 빠르게 대응하세요. 청산 및 즉시 포지션 제어.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
         <!-- History -->
-        <a href="history.html" class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up block">
+        <div class="bg-surface border border-border rounded-xl p-6 card-hover fade-in-up">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">거래 내역</h3>
           <p class="text-txt-secondary text-sm mb-4">입출금 보정 등 스마트 조정이 포함된 완전한 기록.</p>
-          <span class="text-accent text-sm flex items-center gap-1">자세히 보기 <svg class="w-4 h-4 card-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
-        </a>
+
+        </div>
       </div>
     </div>
   </section>
@@ -400,10 +375,10 @@
       </div>
 
       <div class="text-center mt-8 fade-in-up">
-        <a href="strategy.html" class="text-accent hover:text-accent-hover transition-colors text-sm flex items-center justify-center gap-1">
+        <span class="text-accent text-sm flex items-center justify-center gap-1">
           전략 설계 자세히 보기
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
+        </span>
       </div>
     </div>
   </section>
@@ -416,10 +391,10 @@
           <p class="text-accent text-sm font-medium mb-3 tracking-wider uppercase">철학</p>
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">확신 위에 세워진,<br>허풍이 아닌</h2>
           <p class="text-txt-secondary text-lg mb-6">100% 비수탁형. 예측 의존 없음. 모든 AI 프롬프트가 공개되어 감사 가능. 체계적이 투기적을 이긴다고 믿습니다.</p>
-          <a href="philosophy.html" class="text-accent hover:text-accent-hover transition-colors flex items-center gap-2">
+          <span class="text-accent transition-colors flex items-center gap-2">
             철학 읽어보기
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          </span>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-surface border border-border rounded-xl p-5">
@@ -434,10 +409,10 @@
             <div class="text-2xl font-bold text-accent mb-1">Maker</div>
             <div class="text-sm text-txt-secondary">Only 주문</div>
           </div>
-          <a href="track-record.html" class="bg-surface border border-border rounded-xl p-5 card-hover block">
+          <div class="bg-surface border border-border rounded-xl p-5">
             <div class="text-2xl font-bold text-accent mb-1">9+ 개월</div>
-            <div class="text-sm text-txt-secondary">실전 트레이딩 &rarr;</div>
-          </a>
+            <div class="text-sm text-txt-secondary">실전 트레이딩</div>
+          </div>
         </div>
       </div>
     </div>
@@ -492,10 +467,9 @@
         <div class="flex items-center gap-6">
           <a href="ko.html" class="text-lg font-bold">traig</a>
           <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
-            <a href="philosophy.html" class="hover:text-txt-primary transition-colors">철학</a>
-            <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
-            <a href="about.html" class="hover:text-txt-primary transition-colors">소개</a>
-            <a href="business.html" class="hover:text-txt-primary transition-colors">사업</a>
+            <a href="#features" class="hover:text-txt-primary transition-colors">기능</a>
+            <a href="#comparison" class="hover:text-txt-primary transition-colors">비교</a>
+            <a href="#audience" class="hover:text-txt-primary transition-colors">대상</a>
             <a href="#waitlist" class="hover:text-txt-primary transition-colors">웨이트리스트</a>
           </nav>
         </div>
