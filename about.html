@@ -35,7 +35,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="bg-bg-primary text-txt-primary font-sans antialiased">
@@ -43,7 +43,7 @@
   <!-- Header -->
   <header class="fixed top-0 w-full z-50 nav-blur bg-bg-primary/80 border-b border-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-bold tracking-tight">traig</a>
+      <a href="index.html" class="traig-brand text-xl">traig</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <div class="relative group">
           <button class="text-txt-secondary hover:text-txt-primary transition-colors flex items-center gap-1">
@@ -126,8 +126,15 @@
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
           Home
         </a>
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4">About traig</h1>
-        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">Systematic crypto trading, built from conviction.</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">About <span class="traig-brand">traig</span></h1>
+        <p class="text-txt-secondary text-lg sm:text-xl max-w-2xl">
+          <span class="traig-brand-full" style="font-size: 1em;">
+            <span class="product">traig</span>
+            <span class="by">by</span>
+            <span class="company">the universal</span>
+          </span>
+          — systematic crypto trading, built from conviction.
+        </p>
       </div>
     </div>
   </section>
@@ -208,6 +215,30 @@
     </div>
   </section>
 
+  <!-- Section 3: the universal -->
+  <section class="py-20 sm:py-28 bg-bg-primary section-glow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl fade-in-up">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">
+          <span class="traig-brand-full" style="font-size: 1em;">
+            <span class="product">traig</span>
+            <span class="by">by</span>
+            <span class="company">the universal</span>
+          </span>
+        </h2>
+        <div class="space-y-4 text-txt-secondary text-lg leading-relaxed">
+          <p><span class="traig-brand">traig</span> is the first product of <span style="font-family: 'JetBrains Mono', monospace; font-weight: 300; letter-spacing: 0.02em; color: rgba(255,255,255,0.7);">the universal</span> — a company built on the belief that powerful tools should be accessible, transparent, and trustworthy.</p>
+          <p>We start with crypto trading because it's where systematic thinking creates the most immediate value. But our vision extends beyond any single market or product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 4: Global Vision -->
   <section class="py-20 sm:py-28 bg-bg-secondary section-glow">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -258,7 +289,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-6">
-          <a href="index.html" class="text-lg font-bold">traig</a>
+          <a href="index.html" class="traig-brand text-lg">traig</a>
           <nav class="flex flex-wrap gap-4 text-sm text-txt-secondary">
             <a href="philosophy.html" class="hover:text-txt-primary transition-colors">Philosophy</a>
             <a href="ai.html" class="hover:text-txt-primary transition-colors">AI</a>
@@ -267,7 +298,7 @@
             <a href="index.html#waitlist" class="hover:text-txt-primary transition-colors">Waitlist</a>
           </nav>
         </div>
-        <p class="text-sm text-txt-secondary">&copy; traig 2026</p>
+        <p class="text-sm text-txt-secondary">&copy; 2026 <span class="traig-brand-full"><span class="product">traig</span><span class="by">by</span><span class="company">the universal</span></span></p>
       </div>
     </div>
   </footer>
