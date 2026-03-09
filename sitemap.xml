@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- EN: Landing -->
+  <url>
+    <loc>https://traig.kr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://traig.kr/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- KO: Landing -->
+  <url>
+    <loc>https://traig.kr/ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- VI: Landing -->
+  <url>
+    <loc>https://traig.kr/vi.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Strategy -->
+  <url>
+    <loc>https://traig.kr/strategy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/strategy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/strategy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/strategy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/strategy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/strategy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/strategy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- AI -->
+  <url>
+    <loc>https://traig.kr/ai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/ai.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/ai.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/ai.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/ai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/ai.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/ai.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/ai.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/ai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/ai.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/ai.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/ai.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dashboard -->
+  <url>
+    <loc>https://traig.kr/dashboard.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/dashboard.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/dashboard.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/dashboard.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/dashboard.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/dashboard.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/dashboard.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Backtesting -->
+  <url>
+    <loc>https://traig.kr/backtesting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/backtesting.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/backtesting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/backtesting.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/backtesting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/backtesting.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/backtesting.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Track Record -->
+  <url>
+    <loc>https://traig.kr/track-record.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/track-record.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/track-record.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/track-record.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/track-record.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/track-record.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/track-record.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Emergency -->
+  <url>
+    <loc>https://traig.kr/emergency.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/emergency.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/emergency.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/emergency.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/emergency.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/emergency.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/emergency.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- History -->
+  <url>
+    <loc>https://traig.kr/history.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/history.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/history.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/history.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/history.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/history.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/history.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/history.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/history.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/history.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/history.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/history.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Philosophy -->
+  <url>
+    <loc>https://traig.kr/philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/philosophy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/philosophy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/philosophy.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/philosophy.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://traig.kr/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/about.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/about.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/about.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/about.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/about.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/about.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/about.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/about.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/about.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Business -->
+  <url>
+    <loc>https://traig.kr/business.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/business.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/business.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/business.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/business.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/business.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/business.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/business.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/business.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/business.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/business.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/business.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Compare (SEO: grid bot alternative, 3Commas alternative) -->
+  <url>
+    <loc>https://traig.kr/compare.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/compare.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/compare.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/compare.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://traig.kr/compare.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/ko/compare.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/compare.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/compare.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/compare.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://traig.kr/vi/compare.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://traig.kr/compare.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://traig.kr/ko/compare.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://traig.kr/vi/compare.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
