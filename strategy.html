@@ -165,7 +165,7 @@
           <div class="space-y-4 text-txt-secondary text-lg">
             <p>A Recipe is <span class="traig-brand">traig</span>'s trading strategy unit. It maps price to allocation using piecewise-linear segments — smooth, continuous, no steps.</p>
             <p>Each recipe defines how much of your portfolio should be in the asset at any given price. As price moves, <span class="traig-brand">traig</span> automatically rebalances to match your recipe using maker-only orders.</p>
-            <p>Unlike grid bots that react at fixed intervals, a recipe is always defined. Every price level has a clear, intentional instruction.</p>
+            <p>Unlike grid bots that react at fixed intervals, a recipe defines behavior across its entire range. And when price moves beyond that range, automatic transitions hand off to the next strategy seamlessly.</p>
           </div>
         </div>
         <div class="fade-in-up">
@@ -200,13 +200,13 @@
           <h3 class="text-lg font-semibold mb-2">Action Types</h3>
           <p class="text-txt-secondary text-sm">Define each segment as buy-only, sell-only, or both. Prevent unwanted behavior in specific price zones with precise directional control.</p>
         </div>
-        <!-- Feature card: Always Defined -->
+        <!-- Feature card: Automatic Transitions -->
         <div class="bg-surface border border-border rounded-xl p-6 card-hover">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">Always Defined</h3>
-          <p class="text-txt-secondary text-sm">Every price level is covered. No dead zones, no "out of range" gaps. <span class="traig-brand">traig</span> always knows what to do, regardless of where the market moves.</p>
+          <h3 class="text-lg font-semibold mb-2">Automatic Transitions</h3>
+          <p class="text-txt-secondary text-sm">When price moves beyond a recipe's range, <span class="traig-brand">traig</span> automatically transitions to the next strategy. No manual stop-and-restart — your system adapts on its own.</p>
         </div>
       </div>
       <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
@@ -368,7 +368,7 @@
             <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
             <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Continuous — adjust intensity per zone</text>
           </svg>
-          <p class="text-txt-secondary text-sm">Smooth allocation, always defined, zone-specific intensity</p>
+          <p class="text-txt-secondary text-sm">Smooth allocation, automatic transitions, zone-specific intensity</p>
         </div>
       </div>
 
@@ -391,7 +391,7 @@
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Out of Range</td>
               <td class="py-3 px-4">No action</td>
-              <td class="py-3 px-4 text-txt-primary">Always defined behavior</td>
+              <td class="py-3 px-4 text-txt-primary">Automatic strategy transitions</td>
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Zone Intensity</td>
@@ -411,7 +411,7 @@
             <tr class="comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Execution</td>
               <td class="py-3 px-4">Taker orders at grid levels</td>
-              <td class="py-3 px-4 text-txt-primary">Maker-only — fee optimized</td>
+              <td class="py-3 px-4 text-txt-primary">Maker-only default, strategic taking, ask/bid-only, speed control</td>
             </tr>
           </tbody>
         </table>

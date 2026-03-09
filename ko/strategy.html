@@ -165,7 +165,7 @@
           <div class="space-y-4 text-txt-secondary text-lg">
             <p>레시피는 <span class="traig-brand">traig</span>의 트레이딩 전략 단위입니다. 구간선형 세그먼트를 사용하여 가격을 할당량으로 매핑합니다 — 부드럽고, 연속적이며, 단계 없이.</p>
             <p>각 레시피는 특정 가격에서 포트폴리오의 얼마만큼을 해당 자산에 보유할지 정의합니다. 가격이 움직이면, <span class="traig-brand">traig</span>는 메이커 전용 주문을 사용하여 자동으로 레시피에 맞게 리밸런싱합니다.</p>
-            <p>고정된 간격에서만 반응하는 그리드 봇과 달리, 레시피는 항상 정의되어 있습니다. 모든 가격 레벨에 명확하고 의도적인 지침이 있습니다.</p>
+            <p>고정된 간격에서만 반응하는 그리드 봇과 달리, 레시피는 전체 범위에 걸쳐 행동을 정의합니다. 가격이 범위를 벗어나면 자동 전환이 다음 전략으로 매끄럽게 넘겨줍니다.</p>
           </div>
         </div>
         <div class="fade-in-up">
@@ -205,8 +205,8 @@
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">항상 정의됨</h3>
-          <p class="text-txt-secondary text-sm">모든 가격 레벨이 커버됩니다. 데드존도, "범위 밖" 공백도 없습니다. 시장이 어디로 움직이든 <span class="traig-brand">traig</span>는 항상 무엇을 해야 할지 알고 있습니다.</p>
+          <h3 class="text-lg font-semibold mb-2">자동 전환</h3>
+          <p class="text-txt-secondary text-sm">가격이 레시피의 범위를 벗어나면, <span class="traig-brand">traig</span>가 자동으로 다음 전략으로 전환합니다. 수동 중지-재시작 없이 — 시스템이 스스로 적응합니다.</p>
         </div>
       </div>
       <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
@@ -368,7 +368,7 @@
             <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
             <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">연속적 — 구간별 강도 조정 가능</text>
           </svg>
-          <p class="text-txt-secondary text-sm">부드러운 할당, 항상 정의됨, 구간별 강도 조정</p>
+          <p class="text-txt-secondary text-sm">부드러운 할당, 자동 전환, 구간별 강도 조정</p>
         </div>
       </div>
 
@@ -391,7 +391,7 @@
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">범위 이탈 시</td>
               <td class="py-3 px-4">동작 없음</td>
-              <td class="py-3 px-4 text-txt-primary">항상 정의된 행동</td>
+              <td class="py-3 px-4 text-txt-primary">자동 전략 전환</td>
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">구간 강도</td>
@@ -411,7 +411,7 @@
             <tr class="comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">실행</td>
               <td class="py-3 px-4">그리드 레벨에서 테이커 주문</td>
-              <td class="py-3 px-4 text-txt-primary">메이커 전용 — 수수료 최적화</td>
+              <td class="py-3 px-4 text-txt-primary">메이커 온리 기본, 전략적 테이킹, 매도/매수 전용, 속도 조절</td>
             </tr>
           </tbody>
         </table>

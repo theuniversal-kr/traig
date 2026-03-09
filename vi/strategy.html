@@ -165,7 +165,7 @@
           <div class="space-y-4 text-txt-secondary text-lg">
             <p>Công thức (Recipe) là đơn vị chiến lược giao dịch của <span class="traig-brand">traig</span>. Nó ánh xạ giá sang phân bổ bằng các đoạn tuyến tính từng phần — mượt mà, liên tục, không có bậc thang.</p>
             <p>Mỗi công thức xác định bao nhiêu phần tài sản của bạn nên ở trong đồng coin tại bất kỳ mức giá nào. Khi giá di chuyển, <span class="traig-brand">traig</span> tự động tái cân bằng theo công thức của bạn bằng các lệnh chỉ-maker.</p>
-            <p>Khác với grid bot phản ứng theo khoảng cố định, một công thức luôn được xác định. Mỗi mức giá đều có hướng dẫn rõ ràng, có chủ đích.</p>
+            <p>Khác với grid bot phản ứng theo khoảng cố định, một công thức xác định hành vi trên toàn bộ phạm vi. Khi giá vượt ngoài phạm vi, chuyển đổi tự động sẽ chuyển sang chiến lược tiếp theo một cách mượt mà.</p>
           </div>
         </div>
         <div class="fade-in-up">
@@ -205,8 +205,8 @@
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">Luôn được xác định</h3>
-          <p class="text-txt-secondary text-sm">Mọi mức giá đều được bao phủ. Không có vùng chết, không có khoảng trống "ngoài phạm vi". <span class="traig-brand">traig</span> luôn biết phải làm gì, bất kể thị trường di chuyển đến đâu.</p>
+          <h3 class="text-lg font-semibold mb-2">Chuyển đổi tự động</h3>
+          <p class="text-txt-secondary text-sm">Khi giá vượt ngoài phạm vi công thức, <span class="traig-brand">traig</span> tự động chuyển sang chiến lược tiếp theo. Không cần dừng-khởi động lại thủ công — hệ thống tự thích ứng.</p>
         </div>
       </div>
       <div class="fade-in-up bg-surface border border-border rounded-xl p-6 sm:p-8">
@@ -368,7 +368,7 @@
             <circle cx="275" cy="160" r="3" fill="#3B82F6"/>
             <text x="168" y="20" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter" opacity="0.7">Liên tục — điều chỉnh cường độ theo từng vùng</text>
           </svg>
-          <p class="text-txt-secondary text-sm">Phân bổ mượt mà, luôn được xác định, cường độ theo từng vùng</p>
+          <p class="text-txt-secondary text-sm">Phân bổ mượt mà, chuyển đổi tự động, cường độ theo từng vùng</p>
         </div>
       </div>
 
@@ -391,7 +391,7 @@
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Ngoài phạm vi</td>
               <td class="py-3 px-4">Không hành động</td>
-              <td class="py-3 px-4 text-txt-primary">Hành vi luôn được xác định</td>
+              <td class="py-3 px-4 text-txt-primary">Chuyển đổi chiến lược tự động</td>
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">Cường độ vùng</td>

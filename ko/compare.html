@@ -246,8 +246,8 @@
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-3">항상 정의됨</h3>
-          <p class="text-txt-secondary text-sm leading-relaxed">모든 가격 레벨에 정의된 할당이 있습니다. 데드존이 없습니다. 시장이 두 배가 되거나 반토막이 나도, 전략에는 명확한 지침이 있습니다.</p>
+          <h3 class="text-lg font-semibold mb-3">자동 전환</h3>
+          <p class="text-txt-secondary text-sm leading-relaxed">레시피의 범위를 벗어나면, <span class="traig-brand">traig</span>가 자동으로 다음 전략으로 전환합니다. 수동 개입 없이 — 시스템이 변화하는 시장 상황에 스스로 적응합니다.</p>
         </div>
         <!-- Advantage 2 -->
         <div class="bg-surface border border-accent/20 rounded-xl p-6 card-hover">
@@ -255,15 +255,15 @@
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
           </div>
           <h3 class="text-lg font-semibold mb-3">구간별 강도 조절</h3>
-          <p class="text-txt-secondary text-sm leading-relaxed">각 가격 구간의 공격성을 제어할 수 있습니다. 확신이 있는 곳에서는 가파른 기울기, 신중하게 접근하고 싶은 곳에서는 완만한 기울기. 전략이 귀하의 논리를 반영합니다.</p>
+          <p class="text-txt-secondary text-sm leading-relaxed">세그먼트 기울기를 조절하여 각 가격대의 강도를 제어하세요. 확신이 있는 곳에서는 가파른 기울기, 신중하게 접근하고 싶은 곳에서는 완만한 기울기. 전략이 귀하의 논리를 반영합니다.</p>
         </div>
         <!-- Advantage 3 -->
         <div class="bg-surface border border-accent/20 rounded-xl p-6 card-hover">
           <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-3">자동 전환</h3>
-          <p class="text-txt-secondary text-sm leading-relaxed">귀하가 정의한 조건에 따라 전략이 자동으로 전환됩니다. 수동 개입도, 놓친 기회도, 전략 간 다운타임도 없습니다.</p>
+          <h3 class="text-lg font-semibold mb-3">유연한 실행</h3>
+          <p class="text-txt-secondary text-sm leading-relaxed">기본은 메이커 온리로 수수료 최적화, 하지만 완전히 설정 가능합니다. 전략적 테이킹, 매도 전용, 매수 전용 모드, 속도/부드러움 조절로 주문 방식을 세밀하게 튜닝할 수 있습니다.</p>
         </div>
         <!-- Advantage 4 -->
         <div class="bg-surface border border-accent/20 rounded-xl p-6 card-hover">
@@ -304,12 +304,12 @@
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">범위 이탈 시</td>
               <td class="py-3 px-4">봇 침묵 — 아무 조치 없음</td>
-              <td class="py-3 px-4 text-txt-primary">항상 정의됨 — 모든 가격 커버</td>
+              <td class="py-3 px-4 text-txt-primary">자동으로 다음 전략으로 전환</td>
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">구간 제어</td>
               <td class="py-3 px-4">전 구간 동일 강도</td>
-              <td class="py-3 px-4 text-txt-primary">구간별 강도 제어</td>
+              <td class="py-3 px-4 text-txt-primary">세그먼트 기울기로 구간별 강도 조절</td>
             </tr>
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">전략 전환</td>
@@ -329,7 +329,7 @@
             <tr class="border-b border-border/50 comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">실행</td>
               <td class="py-3 px-4">그리드 레벨에서 테이커 주문</td>
-              <td class="py-3 px-4 text-txt-primary">메이커 전용 — 수수료 최적화</td>
+              <td class="py-3 px-4 text-txt-primary">메이커 온리 기본, 전략적 테이킹, 매도/매수 전용, 속도 조절</td>
             </tr>
             <tr class="comparison-highlight">
               <td class="py-3 px-4 text-txt-primary font-medium">투명성</td>
